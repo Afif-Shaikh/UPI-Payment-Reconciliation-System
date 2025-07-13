@@ -29,7 +29,7 @@ A microservices-based system to reconcile UPI transactions across multiple sourc
 
 ## 🗄️ Database Design
 
-![ER Diagram](docs/er-diagram.png)
+![ER Diagram](er-diagram.png)
 
 Tables:
 - `upi_transactions`
