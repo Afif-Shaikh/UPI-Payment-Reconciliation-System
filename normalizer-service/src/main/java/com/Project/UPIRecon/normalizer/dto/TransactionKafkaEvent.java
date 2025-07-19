@@ -1,30 +1,16 @@
-package com.Project.UPIRecon.dto;
-
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+package com.Project.UPIRecon.normalizer.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class TransactionDTO {
-
-    @NotBlank(message = "Transaction ID is required")
+public class TransactionKafkaEvent {
     private String transactionId;
-
-    @NotNull(message = "Amount is required")
     private BigDecimal amount;
-
-    @NotNull(message = "Timestamp is required")
+    private String sender;
+    private String receiver;
     private LocalDateTime timestamp;
 
-    @NotBlank(message = "Sender is required")
-    private String sender;
-
-    @NotBlank(message = "Receiver is required")
-    private String receiver;
-
     // Getters and Setters
-
     public String getTransactionId() {
         return transactionId;
     }
@@ -41,14 +27,6 @@ public class TransactionDTO {
         this.amount = amount;
     }
 
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
-
     public String getSender() {
         return sender;
     }
@@ -63,5 +41,13 @@ public class TransactionDTO {
 
     public void setReceiver(String receiver) {
         this.receiver = receiver;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
     }
 }

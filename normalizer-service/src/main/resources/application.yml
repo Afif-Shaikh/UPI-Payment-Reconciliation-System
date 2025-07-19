@@ -1,6 +1,6 @@
 # src/main/resources/application.yml
 server:
-  port: 8081
+  port: 8083
 
 spring:
   datasource:
@@ -17,3 +17,16 @@ spring:
       indent_output: true
     deserialization:
       fail-on-unknown-properties: true  
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: normalizer-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"

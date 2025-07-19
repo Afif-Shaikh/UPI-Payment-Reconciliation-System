@@ -1,8 +1,9 @@
-package com.Project.UPIRecon.repository;
+package com.Project.UPIRecon.transact.repository;
 
-import com.Project.UPIRecon.entity.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.Project.UPIRecon.transact.entity.Transaction;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,3 +13,4 @@ public interface TransactionRepository extends JpaRepository<Transaction, String
     // You can add custom queries here if needed
 	Page<Transaction> findBySenderOrReceiver(String sender, String receiver, Pageable pageable);
 }
+

@@ -1,27 +1,26 @@
-package com.Project.UPIRecon.entity;
+package com.Project.UPIRecon.transact.dto;
 
-import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "transactions")
-public class Transaction {
+public class TransactionDTO {
 
-    @Id
-    @Column(name = "transaction_id", nullable = false, unique = true)
+    @NotBlank(message = "Transaction ID is required")
     private String transactionId;
 
-    @Column(nullable = false)
+    @NotNull(message = "Amount is required")
     private BigDecimal amount;
 
-    @Column(nullable = false)
+    @NotNull(message = "Timestamp is required")
     private LocalDateTime timestamp;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Sender is required")
     private String sender;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Receiver is required")
     private String receiver;
 
     // Getters and Setters

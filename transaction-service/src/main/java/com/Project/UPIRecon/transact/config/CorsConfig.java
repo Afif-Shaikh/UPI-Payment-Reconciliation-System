@@ -1,4 +1,4 @@
-package com.Project.UPIRecon.config;
+package com.Project.UPIRecon.transact.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
