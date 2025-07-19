@@ -3,6 +3,7 @@ package com.Project.UPIRecon.ingest.model;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import jakarta.validation.constraints.*;
 
 @Entity
 @Table(name = "raw_transactions")
@@ -12,12 +13,18 @@ public class RawTransaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "UTR is required")
     private String utr;
 
+    @NotBlank(message = "VPA is required")
     private String vpa;
 
+    @NotNull(message = "Amount is required")
+    @DecimalMin(value = "0.01", message = "Amount must be positive")
+    @DecimalMax(value = "100000.00", message = "UPI transaction amount cannot exceed ₹1,00,000")
     private BigDecimal amount;
 
+    @NotBlank(message = "Status is required")
     private String status;
 
     private String source; // e.g., bank, psp, merchant, npci

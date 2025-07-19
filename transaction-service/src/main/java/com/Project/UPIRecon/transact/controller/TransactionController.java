@@ -1,11 +1,17 @@
-package com.Project.UPIRecon.controller;
+package com.Project.UPIRecon.transact.controller;
 
-import com.Project.UPIRecon.dto.TransactionDTO;
-import com.Project.UPIRecon.entity.Transaction;
-import com.Project.UPIRecon.repository.TransactionRepository;
+import com.Project.UPIRecon.transact.dto.TransactionDTO;
+
+import com.Project.UPIRecon.transact.entity.Transaction;
+import com.Project.UPIRecon.transact.repository.TransactionRepository;
+import com.Project.UPIRecon.transact.kafka.TransactionProducer;
+import com.Project.UPIRecon.transact.dto.TransactionEvent;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -13,23 +19,42 @@ import org.springframework.data.domain.Pageable;
 
 @RestController
 @RequestMapping("/transactions")
+@Validated
 public class TransactionController {
 
     @Autowired
     private TransactionRepository transactionRepository;
+    
+    @Autowired
+    private TransactionProducer transactionProducer;
 
-    // POST /transactions - Ingest a transaction
+    // POST /transactions - Adding a transaction
     @PostMapping
     public ResponseEntity<String> ingestTransaction(@Valid @RequestBody TransactionDTO transactionDTO) {
+    	 if (transactionRepository.existsById(transactionDTO.getTransactionId())) {
+    	        return ResponseEntity.status(HttpStatus.CONFLICT).body("Transaction ID already exists.");
+    	    }
+    	 
         Transaction transaction = new Transaction();
         transaction.setTransactionId(transactionDTO.getTransactionId());
         transaction.setAmount(transactionDTO.getAmount());
         transaction.setTimestamp(transactionDTO.getTimestamp());
         transaction.setSender(transactionDTO.getSender());
         transaction.setReceiver(transactionDTO.getReceiver());
+        
+     // Send to Kafka
+        TransactionEvent event = new TransactionEvent(
+                transactionDTO.getTransactionId(),
+                transactionDTO.getSender(),
+                transactionDTO.getReceiver(),
+                transactionDTO.getAmount(),
+                transactionDTO.getTimestamp(),
+                "Created"
+        );
+        transactionProducer.sendTransaction(event);
 
         transactionRepository.save(transaction);
-        return ResponseEntity.ok("Transaction ingested successfully!");
+        return ResponseEntity.ok("Transaction added successfully & Sent to Kafka!");
     }
 
     // GET /transactions - List all transactions (with optional search and pagination)

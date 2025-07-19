@@ -1,4 +1,4 @@
-package com.Project.UPIRecon.transaction;
+package com.Project.UPIRecon.transact;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

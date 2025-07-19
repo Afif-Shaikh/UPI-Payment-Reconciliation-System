@@ -10,6 +10,7 @@ C:.
 ¦   mvnw
 ¦   mvnw.cmd
 ¦   pom.xml
+¦   project-structure.txt
 ¦   project_structure.txt
 ¦   README.md
 ¦   
@@ -44,6 +45,9 @@ C:.
 ¦   ¦   ¦   ¦                   +---controller
 ¦   ¦   ¦   ¦                   ¦       TransactionIngestController.java
 ¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---exception
+¦   ¦   ¦   ¦                   ¦       GlobalExceptionHandler.java
+¦   ¦   ¦   ¦                   ¦       
 ¦   ¦   ¦   ¦                   +---model
 ¦   ¦   ¦   ¦                   ¦       RawTransaction.java
 ¦   ¦   ¦   ¦                   ¦       
@@ -68,6 +72,9 @@ C:.
 ¦       ¦   ¦               ¦   
 ¦       ¦   ¦               +---controller
 ¦       ¦   ¦               ¦       TransactionIngestController.class
+¦       ¦   ¦               ¦       
+¦       ¦   ¦               +---exception
+¦       ¦   ¦               ¦       GlobalExceptionHandler.class
 ¦       ¦   ¦               ¦       
 ¦       ¦   ¦               +---model
 ¦       ¦   ¦               ¦       RawTransaction.class
