@@ -1,6 +1,5 @@
-# src/main/resources/application.yml
 server:
-  port: 8083
+  port: 8084
 
 spring:
   datasource:
@@ -16,8 +15,7 @@ spring:
     serialization:
       indent_output: true
     deserialization:
-      fail-on-unknown-properties: true  
-
+      fail-on-unknown-properties: true
   kafka:
     bootstrap-servers: kafka:9092
     consumer:
@@ -30,3 +28,7 @@ spring:
           json:
             trusted:
               packages: "*"
+
+# ✅ This must be OUTSIDE of `spring`
+normalizer-service:
+  base-url: http://localhost:8083

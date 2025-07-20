@@ -85,6 +85,7 @@
 		<module>transaction-service</module>
 		<module>ingest-service</module>
 		<module>normalizer-service</module>
+		<module>recon-service</module>
 	</modules>
 
 </project>
