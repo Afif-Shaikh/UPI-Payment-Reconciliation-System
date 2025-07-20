@@ -20,8 +20,8 @@ public class TransactionConsumer {
     @KafkaListener(topics = "transactions", groupId = "normalizer-group", containerFactory = "kafkaListenerContainerFactory")
     public void consume(TransactionKafkaEvent event) {
         NormalizedTransaction normalized = new NormalizedTransaction();
-//        normalized.setTransactionId(event.getTransactionId());
-        normalized.setTransactionId(UUID.randomUUID().toString());
+        normalized.setTransactionId(event.getTransactionId());
+//        normalized.setTransactionId(UUID.randomUUID().toString());
         normalized.setAmount(event.getAmount());
         normalized.setSenderUpi(event.getSender());
         normalized.setReceiverUpi(event.getReceiver());
