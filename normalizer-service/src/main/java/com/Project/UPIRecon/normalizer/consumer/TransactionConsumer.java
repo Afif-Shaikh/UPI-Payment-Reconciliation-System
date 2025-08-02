@@ -10,6 +10,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class TransactionConsumer {
@@ -17,6 +18,7 @@ public class TransactionConsumer {
     @Autowired
     private NormalizedTransactionRepository repository;
 
+//    @Transactional
     @KafkaListener(topics = "transactions", groupId = "normalizer-group", containerFactory = "kafkaListenerContainerFactory")
     public void consume(TransactionKafkaEvent event) {
         NormalizedTransaction normalized = new NormalizedTransaction();
