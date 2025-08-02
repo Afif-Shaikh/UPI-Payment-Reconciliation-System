@@ -25,7 +25,13 @@ public class ReconciliationService {
     public void reconcileTransactions() {
         List<NormalizedTransactionDTO> transactions = normalizedTransactionService.getAllNormalizedTransactions();
 
-        System.out.println("Fetched transactions count: " + transactions.size());
+        System.out.println("🔄 Transactions for reconciliation: " + transactions.size());
+        
+     // Add this to inspect transaction keys
+        for (NormalizedTransactionDTO txn : transactions) {
+            String key = generateReconciliationKey(txn);
+            System.out.println("🔑 Reconciliation Key: " + key);
+        }
 
         // Group by a unique reconciliation key
         Map<String, List<NormalizedTransactionDTO>> grouped = new HashMap<>();
@@ -39,7 +45,7 @@ public class ReconciliationService {
             String key = entry.getKey();
             List<NormalizedTransactionDTO> group = entry.getValue();
             
-            if (group == null || group.isEmpty()) continue;
+//            if (group == null || group.isEmpty()) continue;
             NormalizedTransactionDTO txn = group.get(0);
 
             ReconciliationResult result = new ReconciliationResult();
@@ -52,6 +58,7 @@ public class ReconciliationService {
             result.setStatus(group.size() > 1 ? "MATCHED" : "MISSING");
 
             resultRepository.save(result);
+            
         }
     }
 

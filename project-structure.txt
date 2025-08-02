@@ -5,13 +5,14 @@ C:.
 ¦   .gitattributes
 ¦   .gitignore
 ¦   .project
+¦   build-all.bat
+¦   docker-compose.yml
 ¦   er-diagram.png
 ¦   HELP.md
 ¦   mvnw
 ¦   mvnw.cmd
 ¦   pom.xml
 ¦   project-structure.txt
-¦   project_structure.txt
 ¦   README.md
 ¦   
 +---.mvn
@@ -26,6 +27,7 @@ C:.
 +---ingest-service
 ¦   ¦   .classpath
 ¦   ¦   .project
+¦   ¦   Dockerfile
 ¦   ¦   pom.xml
 ¦   ¦   
 ¦   +---.settings
@@ -61,6 +63,9 @@ C:.
 ¦   ¦       +---java
 ¦   ¦       +---resources
 ¦   +---target
+¦       ¦   ingest-service-1.0-SNAPSHOT.jar
+¦       ¦   ingest-service-1.0-SNAPSHOT.jar.original
+¦       ¦   
 ¦       +---classes
 ¦       ¦   ¦   application.yml
 ¦       ¦   ¦   
@@ -91,6 +96,265 @@ C:.
 ¦       ¦                       pom.properties
 ¦       ¦                       pom.xml
 ¦       ¦                       
+¦       +---generated-sources
+¦       ¦   +---annotations
+¦       +---generated-test-sources
+¦       ¦   +---test-annotations
+¦       +---maven-archiver
+¦       ¦       pom.properties
+¦       ¦       
+¦       +---maven-status
+¦       ¦   +---maven-compiler-plugin
+¦       ¦       +---compile
+¦       ¦       ¦   +---default-compile
+¦       ¦       ¦           createdFiles.lst
+¦       ¦       ¦           inputFiles.lst
+¦       ¦       ¦           
+¦       ¦       +---testCompile
+¦       ¦           +---default-testCompile
+¦       ¦                   createdFiles.lst
+¦       ¦                   inputFiles.lst
+¦       ¦                   
+¦       +---test-classes
++---normalizer-service
+¦   ¦   .classpath
+¦   ¦   .project
+¦   ¦   Dockerfile
+¦   ¦   pom.xml
+¦   ¦   
+¦   +---.settings
+¦   ¦       org.eclipse.core.resources.prefs
+¦   ¦       org.eclipse.jdt.core.prefs
+¦   ¦       org.eclipse.m2e.core.prefs
+¦   ¦       
+¦   +---src
+¦   ¦   +---main
+¦   ¦   ¦   +---java
+¦   ¦   ¦   ¦   +---com
+¦   ¦   ¦   ¦       +---Project
+¦   ¦   ¦   ¦           +---UPIRecon
+¦   ¦   ¦   ¦               +---normalizer
+¦   ¦   ¦   ¦                   ¦   NormalizerServiceApplication.java
+¦   ¦   ¦   ¦                   ¦   
+¦   ¦   ¦   ¦                   +---config
+¦   ¦   ¦   ¦                   ¦       CorsConfig.java
+¦   ¦   ¦   ¦                   ¦       KafkaConsumerConfig.java
+¦   ¦   ¦   ¦                   ¦       KafkaProducerConfig.java
+¦   ¦   ¦   ¦                   ¦       SwaggerConfig.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---consumer
+¦   ¦   ¦   ¦                   ¦       TransactionConsumer.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---controller
+¦   ¦   ¦   ¦                   +---dto
+¦   ¦   ¦   ¦                   ¦       NormalizedTransactionDTO.java
+¦   ¦   ¦   ¦                   ¦       TransactionDTO.java
+¦   ¦   ¦   ¦                   ¦       TransactionKafkaEvent.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---entity
+¦   ¦   ¦   ¦                   ¦       NormalizedTransaction.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---exception
+¦   ¦   ¦   ¦                   ¦       GlobalExceptionHandler.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---kafka
+¦   ¦   ¦   ¦                   ¦       TransactionProducer.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---repository
+¦   ¦   ¦   ¦                           NormalizedTransactionRepository.java
+¦   ¦   ¦   ¦                           
+¦   ¦   ¦   +---resources
+¦   ¦   ¦           application.yml
+¦   ¦   ¦           
+¦   ¦   +---test
+¦   ¦       +---java
+¦   ¦       +---resources
+¦   +---target
+¦       ¦   normalizer-service-1.0-SNAPSHOT.jar
+¦       ¦   normalizer-service-1.0-SNAPSHOT.jar.original
+¦       ¦   
+¦       +---classes
+¦       ¦   ¦   application.yml
+¦       ¦   ¦   
+¦       ¦   +---com
+¦       ¦       +---Project
+¦       ¦           +---UPIRecon
+¦       ¦               +---normalizer
+¦       ¦                   ¦   NormalizerServiceApplication.class
+¦       ¦                   ¦   
+¦       ¦                   +---config
+¦       ¦                   ¦       CorsConfig$1.class
+¦       ¦                   ¦       CorsConfig.class
+¦       ¦                   ¦       KafkaConsumerConfig.class
+¦       ¦                   ¦       KafkaProducerConfig.class
+¦       ¦                   ¦       SwaggerConfig.class
+¦       ¦                   ¦       
+¦       ¦                   +---consumer
+¦       ¦                   ¦       TransactionConsumer.class
+¦       ¦                   ¦       
+¦       ¦                   +---dto
+¦       ¦                   ¦       NormalizedTransactionDTO.class
+¦       ¦                   ¦       TransactionDTO.class
+¦       ¦                   ¦       TransactionKafkaEvent.class
+¦       ¦                   ¦       
+¦       ¦                   +---entity
+¦       ¦                   ¦       NormalizedTransaction.class
+¦       ¦                   ¦       
+¦       ¦                   +---exception
+¦       ¦                   ¦       GlobalExceptionHandler.class
+¦       ¦                   ¦       
+¦       ¦                   +---kafka
+¦       ¦                   ¦       TransactionProducer.class
+¦       ¦                   ¦       
+¦       ¦                   +---repository
+¦       ¦                           NormalizedTransactionRepository.class
+¦       ¦                           
+¦       +---generated-sources
+¦       ¦   +---annotations
+¦       +---generated-test-sources
+¦       ¦   +---test-annotations
+¦       +---maven-archiver
+¦       ¦       pom.properties
+¦       ¦       
+¦       +---maven-status
+¦       ¦   +---maven-compiler-plugin
+¦       ¦       +---compile
+¦       ¦       ¦   +---default-compile
+¦       ¦       ¦           createdFiles.lst
+¦       ¦       ¦           inputFiles.lst
+¦       ¦       ¦           
+¦       ¦       +---testCompile
+¦       ¦           +---default-testCompile
+¦       ¦                   createdFiles.lst
+¦       ¦                   inputFiles.lst
+¦       ¦                   
+¦       +---test-classes
++---recon-service
+¦   ¦   .classpath
+¦   ¦   .project
+¦   ¦   Dockerfile
+¦   ¦   pom.xml
+¦   ¦   
+¦   +---.settings
+¦   ¦       org.eclipse.core.resources.prefs
+¦   ¦       org.eclipse.jdt.core.prefs
+¦   ¦       org.eclipse.m2e.core.prefs
+¦   ¦       
+¦   +---src
+¦   ¦   +---main
+¦   ¦   ¦   +---java
+¦   ¦   ¦   ¦   +---com
+¦   ¦   ¦   ¦       +---Project
+¦   ¦   ¦   ¦           +---UPIRecon
+¦   ¦   ¦   ¦               +---recon
+¦   ¦   ¦   ¦                   ¦   ReconServiceApplication.java
+¦   ¦   ¦   ¦                   ¦   
+¦   ¦   ¦   ¦                   +---config
+¦   ¦   ¦   ¦                   ¦       CorsConfig.java
+¦   ¦   ¦   ¦                   ¦       KafkaConsumerConfig.java
+¦   ¦   ¦   ¦                   ¦       SwaggerConfig.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---controller
+¦   ¦   ¦   ¦                   ¦       ReconciliationController.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---dto
+¦   ¦   ¦   ¦                   ¦       NormalizedTransactionDTO.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---entity
+¦   ¦   ¦   ¦                   ¦       NormalizedTransaction.java
+¦   ¦   ¦   ¦                   ¦       ReconciliationResult.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---exception
+¦   ¦   ¦   ¦                   ¦       GlobalExceptionHandler.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---kafka
+¦   ¦   ¦   ¦                   ¦       NormalizedTransactionConsumer.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---repository
+¦   ¦   ¦   ¦                   ¦       NormalizedTransactionRepository.java
+¦   ¦   ¦   ¦                   ¦       ReconciliationResultRepository.java
+¦   ¦   ¦   ¦                   ¦       
+¦   ¦   ¦   ¦                   +---service
+¦   ¦   ¦   ¦                           NormalizedTransactionService.java
+¦   ¦   ¦   ¦                           ReconciliationService.java
+¦   ¦   ¦   ¦                           
+¦   ¦   ¦   +---resources
+¦   ¦   ¦           application.yml
+¦   ¦   ¦           
+¦   ¦   +---test
+¦   ¦       +---java
+¦   ¦       +---resources
+¦   +---target
+¦       ¦   recon-service-1.0-SNAPSHOT.jar
+¦       ¦   recon-service-1.0-SNAPSHOT.jar.original
+¦       ¦   
+¦       +---classes
+¦       ¦   ¦   application.yml
+¦       ¦   ¦   
+¦       ¦   +---com
+¦       ¦   ¦   +---Project
+¦       ¦   ¦       +---UPIRecon
+¦       ¦   ¦           +---recon
+¦       ¦   ¦               ¦   ReconServiceApplication.class
+¦       ¦   ¦               ¦   
+¦       ¦   ¦               +---config
+¦       ¦   ¦               ¦       CorsConfig$1.class
+¦       ¦   ¦               ¦       CorsConfig.class
+¦       ¦   ¦               ¦       KafkaConsumerConfig.class
+¦       ¦   ¦               ¦       SwaggerConfig.class
+¦       ¦   ¦               ¦       
+¦       ¦   ¦               +---controller
+¦       ¦   ¦               ¦       ReconciliationController.class
+¦       ¦   ¦               ¦       
+¦       ¦   ¦               +---dto
+¦       ¦   ¦               ¦       NormalizedTransactionDTO.class
+¦       ¦   ¦               ¦       
+¦       ¦   ¦               +---entity
+¦       ¦   ¦               ¦       NormalizedTransaction.class
+¦       ¦   ¦               ¦       ReconciliationResult.class
+¦       ¦   ¦               ¦       
+¦       ¦   ¦               +---exception
+¦       ¦   ¦               ¦       GlobalExceptionHandler.class
+¦       ¦   ¦               ¦       
+¦       ¦   ¦               +---kafka
+¦       ¦   ¦               ¦       NormalizedTransactionConsumer.class
+¦       ¦   ¦               ¦       
+¦       ¦   ¦               +---repository
+¦       ¦   ¦               ¦       NormalizedTransactionRepository.class
+¦       ¦   ¦               ¦       ReconciliationResultRepository.class
+¦       ¦   ¦               ¦       
+¦       ¦   ¦               +---service
+¦       ¦   ¦                       NormalizedTransactionService.class
+¦       ¦   ¦                       ReconciliationService.class
+¦       ¦   ¦                       
+¦       ¦   +---META-INF
+¦       ¦       ¦   MANIFEST.MF
+¦       ¦       ¦   
+¦       ¦       +---maven
+¦       ¦           +---com.Project.UPIRecon
+¦       ¦               +---recon-service
+¦       ¦                       pom.properties
+¦       ¦                       pom.xml
+¦       ¦                       
+¦       +---generated-sources
+¦       ¦   +---annotations
+¦       +---generated-test-sources
+¦       ¦   +---test-annotations
+¦       +---maven-archiver
+¦       ¦       pom.properties
+¦       ¦       
+¦       +---maven-status
+¦       ¦   +---maven-compiler-plugin
+¦       ¦       +---compile
+¦       ¦       ¦   +---default-compile
+¦       ¦       ¦           createdFiles.lst
+¦       ¦       ¦           inputFiles.lst
+¦       ¦       ¦           
+¦       ¦       +---testCompile
+¦       ¦           +---default-testCompile
+¦       ¦                   createdFiles.lst
+¦       ¦                   inputFiles.lst
+¦       ¦                   
 ¦       +---test-classes
 +---src
 ¦   +---main
@@ -114,31 +378,11 @@ C:.
 ¦                           
 +---target
 ¦   +---classes
-¦   ¦   ¦   application.properties
-¦   ¦   ¦   
-¦   ¦   +---com
-¦   ¦   ¦   +---Project
-¦   ¦   ¦       +---UPIRecon
-¦   ¦   ¦               UpiReconApplication.class
-¦   ¦   ¦               
-¦   ¦   +---META-INF
-¦   ¦       ¦   MANIFEST.MF
-¦   ¦       ¦   
-¦   ¦       +---maven
-¦   ¦           +---com.Project
-¦   ¦               +---UPIRecon
-¦   ¦                       pom.properties
-¦   ¦                       pom.xml
-¦   ¦                       
 ¦   +---test-classes
-¦       +---com
-¦           +---Project
-¦               +---UPIRecon
-¦                       UpiReconApplicationTests.class
-¦                       
 +---transaction-service
     ¦   .classpath
     ¦   .project
+    ¦   Dockerfile
     ¦   pom.xml
     ¦   
     +---.settings
@@ -151,29 +395,36 @@ C:.
     ¦   ¦   +---java
     ¦   ¦   ¦   +---com
     ¦   ¦   ¦       +---Project
-    ¦   ¦   ¦           +---UPIRecon
-    ¦   ¦   ¦               +---config
-    ¦   ¦   ¦               ¦       CorsConfig.java
-    ¦   ¦   ¦               ¦       SwaggerConfig.java
-    ¦   ¦   ¦               ¦       
-    ¦   ¦   ¦               +---controller
-    ¦   ¦   ¦               ¦       TransactionController.java
-    ¦   ¦   ¦               ¦       
-    ¦   ¦   ¦               +---dto
-    ¦   ¦   ¦               ¦       TransactionDTO.java
-    ¦   ¦   ¦               ¦       
-    ¦   ¦   ¦               +---entity
-    ¦   ¦   ¦               ¦       Transaction.java
-    ¦   ¦   ¦               ¦       
-    ¦   ¦   ¦               +---exception
-    ¦   ¦   ¦               ¦       GlobalExceptionHandler.java
-    ¦   ¦   ¦               ¦       
-    ¦   ¦   ¦               +---repository
-    ¦   ¦   ¦               ¦       TransactionRepository.java
-    ¦   ¦   ¦               ¦       
-    ¦   ¦   ¦               +---transaction
-    ¦   ¦   ¦                       TransactionServiceApplication.java
-    ¦   ¦   ¦                       
+    ¦   ¦   ¦       ¦   +---UPIRecon
+    ¦   ¦   ¦       ¦       +---transact
+    ¦   ¦   ¦       ¦           ¦   TransactionServiceApplication.java
+    ¦   ¦   ¦       ¦           ¦   
+    ¦   ¦   ¦       ¦           +---config
+    ¦   ¦   ¦       ¦           ¦       CorsConfig.java
+    ¦   ¦   ¦       ¦           ¦       SwaggerConfig.java
+    ¦   ¦   ¦       ¦           ¦       
+    ¦   ¦   ¦       ¦           +---controller
+    ¦   ¦   ¦       ¦           ¦       TransactionController.java
+    ¦   ¦   ¦       ¦           ¦       
+    ¦   ¦   ¦       ¦           +---dto
+    ¦   ¦   ¦       ¦           ¦       TransactionDTO.java
+    ¦   ¦   ¦       ¦           ¦       TransactionEvent.java
+    ¦   ¦   ¦       ¦           ¦       
+    ¦   ¦   ¦       ¦           +---entity
+    ¦   ¦   ¦       ¦           ¦       Transaction.java
+    ¦   ¦   ¦       ¦           ¦       
+    ¦   ¦   ¦       ¦           +---exception
+    ¦   ¦   ¦       ¦           ¦       GlobalExceptionHandler.java
+    ¦   ¦   ¦       ¦           ¦       
+    ¦   ¦   ¦       ¦           +---kafka
+    ¦   ¦   ¦       ¦           ¦       KafkaProducerConfig.java
+    ¦   ¦   ¦       ¦           ¦       TransactionProducer.java
+    ¦   ¦   ¦       ¦           ¦       
+    ¦   ¦   ¦       ¦           +---repository
+    ¦   ¦   ¦       ¦                   TransactionRepository.java
+    ¦   ¦   ¦       ¦                   
+    ¦   ¦   ¦       +---upirecon
+    ¦   ¦   ¦           +---transactionservice
     ¦   ¦   +---resources
     ¦   ¦           application.yml
     ¦   ¦           
@@ -181,35 +432,43 @@ C:.
     ¦       +---java
     ¦       +---resources
     +---target
+        ¦   transaction-service-1.0-SNAPSHOT.jar
+        ¦   transaction-service-1.0-SNAPSHOT.jar.original
+        ¦   
         +---classes
         ¦   ¦   application.yml
         ¦   ¦   
         ¦   +---com
         ¦   ¦   +---Project
         ¦   ¦       +---UPIRecon
-        ¦   ¦           +---config
-        ¦   ¦           ¦       CorsConfig$1.class
-        ¦   ¦           ¦       CorsConfig.class
-        ¦   ¦           ¦       SwaggerConfig.class
-        ¦   ¦           ¦       
-        ¦   ¦           +---controller
-        ¦   ¦           ¦       TransactionController.class
-        ¦   ¦           ¦       
-        ¦   ¦           +---dto
-        ¦   ¦           ¦       TransactionDTO.class
-        ¦   ¦           ¦       
-        ¦   ¦           +---entity
-        ¦   ¦           ¦       Transaction.class
-        ¦   ¦           ¦       
-        ¦   ¦           +---exception
-        ¦   ¦           ¦       GlobalExceptionHandler.class
-        ¦   ¦           ¦       
-        ¦   ¦           +---repository
-        ¦   ¦           ¦       TransactionRepository.class
-        ¦   ¦           ¦       
-        ¦   ¦           +---transaction
-        ¦   ¦                   TransactionServiceApplication.class
-        ¦   ¦                   
+        ¦   ¦           +---transact
+        ¦   ¦               ¦   TransactionServiceApplication.class
+        ¦   ¦               ¦   
+        ¦   ¦               +---config
+        ¦   ¦               ¦       CorsConfig$1.class
+        ¦   ¦               ¦       CorsConfig.class
+        ¦   ¦               ¦       SwaggerConfig.class
+        ¦   ¦               ¦       
+        ¦   ¦               +---controller
+        ¦   ¦               ¦       TransactionController.class
+        ¦   ¦               ¦       
+        ¦   ¦               +---dto
+        ¦   ¦               ¦       TransactionDTO.class
+        ¦   ¦               ¦       TransactionEvent.class
+        ¦   ¦               ¦       
+        ¦   ¦               +---entity
+        ¦   ¦               ¦       Transaction.class
+        ¦   ¦               ¦       
+        ¦   ¦               +---exception
+        ¦   ¦               ¦       GlobalExceptionHandler.class
+        ¦   ¦               ¦       
+        ¦   ¦               +---kafka
+        ¦   ¦               ¦       KafkaProducerConfig.class
+        ¦   ¦               ¦       TransactionProducer.class
+        ¦   ¦               ¦       
+        ¦   ¦               +---repository
+        ¦   ¦                       TransactionRepository.class
+        ¦   ¦                       
         ¦   +---META-INF
         ¦       ¦   MANIFEST.MF
         ¦       ¦   
@@ -219,4 +478,23 @@ C:.
         ¦                       pom.properties
         ¦                       pom.xml
         ¦                       
+        +---generated-sources
+        ¦   +---annotations
+        +---generated-test-sources
+        ¦   +---test-annotations
+        +---maven-archiver
+        ¦       pom.properties
+        ¦       
+        +---maven-status
+        ¦   +---maven-compiler-plugin
+        ¦       +---compile
+        ¦       ¦   +---default-compile
+        ¦       ¦           createdFiles.lst
+        ¦       ¦           inputFiles.lst
+        ¦       ¦           
+        ¦       +---testCompile
+        ¦           +---default-testCompile
+        ¦                   createdFiles.lst
+        ¦                   inputFiles.lst
+        ¦                   
         +---test-classes

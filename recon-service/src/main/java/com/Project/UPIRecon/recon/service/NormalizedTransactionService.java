@@ -28,8 +28,8 @@ public class NormalizedTransactionService {
 
 	public List<NormalizedTransactionDTO> getAllNormalizedTransactions() {
 		List<NormalizedTransaction> transactions = repository.findAll();
-		System.out.println("Normalized Transactions Fetched: " + transactions.size());
-		transactions.forEach(System.out::println);
+//		System.out.println("Normalized Transactions Fetched: " + transactions.size());
+//		transactions.forEach(System.out::println);
 
 
 		return transactions.stream().map(txn -> {
