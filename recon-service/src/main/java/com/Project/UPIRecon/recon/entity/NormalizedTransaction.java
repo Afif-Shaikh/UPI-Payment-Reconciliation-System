@@ -6,12 +6,16 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "normalized_upi_transactions")
 public class NormalizedTransaction {
 
     @Id
     private String transactionId;
+    @Column(name = "sender_upi", nullable = false)
     private String sender;
+    @Column(name = "receiver_upi", nullable = false)
     private String receiver;
+    @Column(nullable = false)
     private BigDecimal amount;
     private LocalDateTime timestamp;
 

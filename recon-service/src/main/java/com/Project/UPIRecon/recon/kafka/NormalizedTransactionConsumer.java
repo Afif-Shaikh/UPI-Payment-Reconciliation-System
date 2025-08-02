@@ -14,7 +14,7 @@ public class NormalizedTransactionConsumer {
 
     @KafkaListener(topics = "normalized-transactions", groupId = "recon-group", containerFactory = "kafkaListenerContainerFactory")
     public void consume(NormalizedTransactionDTO dto) {
-        System.out.println("Received from Kafka: " + dto);
+//        System.out.println("Received from Kafka: " + dto);
         normalizedTransactionService.saveNormalizedTransaction(dto);
     }
 }
