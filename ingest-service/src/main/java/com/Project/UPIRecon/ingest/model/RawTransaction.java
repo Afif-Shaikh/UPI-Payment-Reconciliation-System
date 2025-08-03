@@ -9,54 +9,96 @@ import jakarta.validation.constraints.*;
 @Table(name = "raw_transactions")
 public class RawTransaction {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String transactionId;
+	
+    @NotBlank(message = "Sender UPI is required")
+    private String senderUpi;
 
-    @NotBlank(message = "UTR is required")
-    private String utr;
+    @NotBlank(message = "Receiver UPI is required")
+    private String receiverUpi;
 
-    @NotBlank(message = "VPA is required")
-    private String vpa;
+	@NotNull(message = "Amount is required")
+	@DecimalMin(value = "0.01", message = "Amount must be positive")
+	@DecimalMax(value = "100000.00", message = "UPI transaction amount cannot exceed ₹1,00,000")
+	private BigDecimal amount;
 
-    @NotNull(message = "Amount is required")
-    @DecimalMin(value = "0.01", message = "Amount must be positive")
-    @DecimalMax(value = "100000.00", message = "UPI transaction amount cannot exceed ₹1,00,000")
-    private BigDecimal amount;
+	@NotBlank(message = "Status is required")
+	private String status;
 
-    @NotBlank(message = "Status is required")
-    private String status;
+	@NotBlank(message = "Source is required")
+	private String source; // e.g., bank, psp, merchant, npci
 
-    private String source; // e.g., bank, psp, merchant, npci
+	@Column(columnDefinition = "TEXT")
+	private String remarks;
 
-    @Column(columnDefinition = "TEXT")
-    private String rawData;
+    private LocalDateTime timeStamp ;
+//    		=LocalDateTime.now();
 
-    private LocalDateTime receivedAt = LocalDateTime.now();
+	// Getters and Setters
 
-    // Getters and Setters
+    public String getTransactionId() {
+        return transactionId;
+    }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
+    }
 
-    public String getUtr() { return utr; }
-    public void setUtr(String utr) { this.utr = utr; }
+    public String getSenderUpi() {
+        return senderUpi;
+    }
 
-    public String getVpa() { return vpa; }
-    public void setVpa(String vpa) { this.vpa = vpa; }
+    public void setSenderUpi(String senderUpi) {
+        this.senderUpi = senderUpi;
+    }
 
-    public BigDecimal getAmount() { return amount; }
-    public void setAmount(BigDecimal amount) { this.amount = amount; }
+    public String getReceiverUpi() {
+        return receiverUpi;
+    }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public void setReceiverUpi(String receiverUpi) {
+        this.receiverUpi = receiverUpi;
+    }
 
-    public String getSource() { return source; }
-    public void setSource(String source) { this.source = source; }
+	public BigDecimal getAmount() {
+		return amount;
+	}
 
-    public String getRawData() { return rawData; }
-    public void setRawData(String rawData) { this.rawData = rawData; }
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
 
-    public LocalDateTime getReceivedAt() { return receivedAt; }
-    public void setReceivedAt(LocalDateTime receivedAt) { this.receivedAt = receivedAt; }
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	public LocalDateTime getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(LocalDateTime timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 }
