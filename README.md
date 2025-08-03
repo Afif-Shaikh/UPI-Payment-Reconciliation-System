@@ -5,8 +5,9 @@ A microservices-based system to reconcile UPI transactions across multiple sourc
 ---
 
 ## 🔧 Tech Stack
-- Java 17 + Spring Boot
-- PostgreSQL
+- Java 17 + Spring Boot Framework
+- Microservices Architecture
+- PostgreSQL Database
 - Kafka
 - gRPC / REST APIs
 - Docker & Docker Compose
