@@ -3,6 +3,12 @@ package com.Project.UPIRecon.recon.service;
 import com.Project.UPIRecon.recon.dto.NormalizedTransactionDTO;
 import com.Project.UPIRecon.recon.entity.ReconciliationResult;
 import com.Project.UPIRecon.recon.repository.ReconciliationResultRepository;
+
+import com.Project.UPIRecon.config.LoggingConfig;
+import org.slf4j.Logger;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +19,26 @@ public class ReconciliationService {
 
     private final NormalizedTransactionService normalizedTransactionService;
     private final ReconciliationResultRepository resultRepository;
+    
+    @Autowired
+    private KafkaTemplate<String, ReconciliationResult> kafkaTemplate;
+    
+    private static final Logger log = LoggingConfig.getLogger(ReconciliationService.class);
+
+    public void publishResult(ReconciliationResult result) {
+        log.info("Publishing: normalizedKey={}, amount={}, status={}",
+                 result.getNormalizedKey(), result.getAmount(), result.getStatus());
+
+        // If needed log DTO
+        log.debug("DTO: {}", result);
+
+        kafkaTemplate.send("reconciliation_result", result);
+    }
+
+
+//    public void publishToKafka(ReconciliationResult result) {
+//        kafkaTemplate.send("reconciliation_result", result);
+//    }
 
     public ReconciliationService(NormalizedTransactionService normalizedTransactionService,
                                  ReconciliationResultRepository resultRepository) {
@@ -25,12 +51,12 @@ public class ReconciliationService {
     public void reconcileTransactions() {
         List<NormalizedTransactionDTO> transactions = normalizedTransactionService.getAllNormalizedTransactions();
 
-        System.out.println("🔄 Transactions for reconciliation: " + transactions.size());
+        log.info("Transactions fetched for reconciliation: {}", transactions.size());
         
      // Add this to inspect transaction keys
         for (NormalizedTransactionDTO txn : transactions) {
             String key = generateReconciliationKey(txn);
-            System.out.println("🔑 Reconciliation Key: " + key);
+            log.debug("Reconciliation key for txnId={} -> {}", txn.getTransactionId(), key);
         }
 
         // Group by a unique reconciliation key
@@ -58,6 +84,7 @@ public class ReconciliationService {
             result.setStatus(group.size() > 1 ? "MATCHED" : "MISSING");
 
             resultRepository.save(result);
+            publishResult(result);
             
         }
     }

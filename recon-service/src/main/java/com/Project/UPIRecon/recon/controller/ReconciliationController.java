@@ -1,6 +1,8 @@
 package com.Project.UPIRecon.recon.controller;
 
 import com.Project.UPIRecon.recon.entity.ReconciliationResult;
+import com.Project.UPIRecon.config.LoggingConfig;
+import org.slf4j.Logger;
 import com.Project.UPIRecon.recon.repository.ReconciliationResultRepository;
 import com.Project.UPIRecon.recon.service.ReconciliationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import java.util.List;
 @RequestMapping("/api/reconciliation")
 public class ReconciliationController {
 
+	private static final Logger log = LoggingConfig.getLogger(ReconciliationController.class);
+	
     @Autowired
     private ReconciliationService reconciliationService;
 
@@ -21,7 +25,9 @@ public class ReconciliationController {
     // Endpoint to manually trigger reconciliation
     @PostMapping("/run")
     public String triggerReconciliation() {
-        reconciliationService.reconcileTransactions();
+    	 log.info("Manual reconciliation trigger requested");
+         reconciliationService.reconcileTransactions();
+         log.info("Reconciliation process triggered successfully");
         return "Reconciliation triggered successfully.";
     }
 
