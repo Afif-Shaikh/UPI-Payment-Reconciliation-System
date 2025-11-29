@@ -1,11 +1,13 @@
 package com.Project.UPIRecon.ingest.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import jakarta.validation.constraints.*;
 
 @Entity
+@Data
 @Table(name = "raw_transactions")
 public class RawTransaction {
 
@@ -35,70 +37,4 @@ public class RawTransaction {
 
     private LocalDateTime timeStamp ;
 //    		=LocalDateTime.now();
-
-	// Getters and Setters
-
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-    }
-
-    public String getSenderUpi() {
-        return senderUpi;
-    }
-
-    public void setSenderUpi(String senderUpi) {
-        this.senderUpi = senderUpi;
-    }
-
-    public String getReceiverUpi() {
-        return receiverUpi;
-    }
-
-    public void setReceiverUpi(String receiverUpi) {
-        this.receiverUpi = receiverUpi;
-    }
-
-	public BigDecimal getAmount() {
-		return amount;
-	}
-
-	public void setAmount(BigDecimal amount) {
-		this.amount = amount;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getSource() {
-		return source;
-	}
-
-	public void setSource(String source) {
-		this.source = source;
-	}
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
-
-	public LocalDateTime getTimeStamp() {
-        return timeStamp;
-    }
-
-    public void setTimeStamp(LocalDateTime timeStamp) {
-        this.timeStamp = timeStamp;
-    }
 }
