@@ -1,6 +1,6 @@
 package com.Project.UPIRecon.normalizer.config;
 
-import com.Project.UPIRecon.normalizer.dto.NormalizedTransactionDTO;
+import com.Project.UPIRecon.dto.NormalizedTransactionEvent;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.*;
@@ -13,7 +13,7 @@ import java.util.*;
 public class KafkaProducerConfig {
 
     @Bean
-    public ProducerFactory<String, NormalizedTransactionDTO> producerFactory() {
+    public ProducerFactory<String, NormalizedTransactionEvent> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka:9092");
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -22,7 +22,7 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, NormalizedTransactionDTO> kafkaTemplate() {
+    public KafkaTemplate<String, NormalizedTransactionEvent> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }

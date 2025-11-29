@@ -23,6 +23,11 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.Project</groupId>
+			<artifactId>shared-dto</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

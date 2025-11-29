@@ -16,4 +16,7 @@ spring:
     serialization:
       indent_output: true
     deserialization:
-      fail-on-unknown-properties: true  
+      fail-on-unknown-properties: true
+
+  kafka:
+    bootstrap-servers: kafka:9092

@@ -2,15 +2,19 @@ package com.Project.UPIRecon.normalizer.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-
+import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import com.Project.UPIRecon.dto.NormalizedTransactionEvent;
+
 @Entity
+@Data
+@NoArgsConstructor
 @Table(name = "normalized_upi_transactions")
 public class NormalizedTransaction {
 
-    @Id
+	@Id
     @NotNull(message = "TrxnId is required")
     private String transactionId;
     @NotNull(message = "Amount is required")
@@ -21,55 +25,15 @@ public class NormalizedTransaction {
     private String receiverUpi;
     @NotNull(message = "TimeStamp is required")
     private LocalDateTime timestamp;
-	private LocalDateTime transactionTime;
-
-    // Getters and Setters
-	
-	public LocalDateTime getTimestamp() {
-		return timestamp;
+    
+    private String normalizedKey;
+    
+    public NormalizedTransaction(NormalizedTransactionEvent event) {
+    	this.transactionId = event.getTransactionId();
+        this.amount = event.getAmount();
+        this.senderUpi = event.getSenderUpi();
+        this.receiverUpi = event.getReceiverUpi();
+        this.timestamp = event.getTimestamp();
+        this.normalizedKey=event.getNormalizedKey();
 	}
-
-	public void setTimestamp(LocalDateTime timestamp) {
-		this.timestamp = timestamp;
-	}
-
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public String getSenderUpi() {
-        return senderUpi;
-    }
-
-    public void setSenderUpi(String senderUpi) {
-        this.senderUpi = senderUpi;
-    }
-
-    public String getReceiverUpi() {
-        return receiverUpi;
-    }
-
-    public void setReceiverUpi(String receiverUpi) {
-        this.receiverUpi = receiverUpi;
-    }
-
-    public LocalDateTime getTransactionTime() {
-        return transactionTime;
-    }
-
-    public void setTransactionTime(LocalDateTime transactionTime) {
-        this.transactionTime = transactionTime;
-    }
 }

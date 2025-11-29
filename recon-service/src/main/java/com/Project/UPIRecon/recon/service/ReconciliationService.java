@@ -17,80 +17,78 @@ import java.util.*;
 @Service
 public class ReconciliationService {
 
-    private final NormalizedTransactionService normalizedTransactionService;
-    private final ReconciliationResultRepository resultRepository;
-    
-    @Autowired
-    private KafkaTemplate<String, ReconciliationResult> kafkaTemplate;
-    
-    private static final Logger log = LoggingConfig.getLogger(ReconciliationService.class);
+	private final NormalizedTransactionService normalizedTransactionService;
+	private final ReconciliationResultRepository resultRepository;
+	private static final Logger log = LoggingConfig.getLogger(ReconciliationService.class);
 
-    public void publishResult(ReconciliationResult result) {
-        log.info("Publishing: normalizedKey={}, amount={}, status={}",
-                 result.getNormalizedKey(), result.getAmount(), result.getStatus());
+	@Autowired
+	private KafkaTemplate<String, ReconciliationResult> kafkaTemplate;
 
-        // If needed log DTO
-        log.debug("DTO: {}", result);
+	public void publishResult(ReconciliationResult result) {
+		log.info("Publishing: normalizedKey={}, amount={}, status={}", result.getNormalizedKey(), result.getAmount(),
+				result.getStatus());
+		log.debug("ReconciliationResult DTO: {}", result);
 
-        kafkaTemplate.send("reconciliation_result", result);
-    }
+		try {
+			kafkaTemplate.send("reconciliation_result", result);
+			log.info("Published reconciliation result to Kafka. normalizedKey={}", result.getNormalizedKey());
+		} catch (Exception e) {
+			log.error("Failed to publish reconciliation result. normalizedKey={} | Error: {}",
+					result.getNormalizedKey(), e.getMessage(), e);
+		}
+	}
 
-
-//    public void publishToKafka(ReconciliationResult result) {
-//        kafkaTemplate.send("reconciliation_result", result);
-//    }
-
-    public ReconciliationService(NormalizedTransactionService normalizedTransactionService,
-                                 ReconciliationResultRepository resultRepository) {
+	public ReconciliationService(NormalizedTransactionService normalizedTransactionService,
+			ReconciliationResultRepository resultRepository) {
 		this.normalizedTransactionService = normalizedTransactionService;
-        this.resultRepository = resultRepository;
-    }
+		this.resultRepository = resultRepository;
+	}
 
-    // Run every 10 minutes or manually trigger this method in a controller if needed
-    @Scheduled(fixedRate = 600000)
-    public void reconcileTransactions() {
-        List<NormalizedTransactionDTO> transactions = normalizedTransactionService.getAllNormalizedTransactions();
+	// Run every 10 minutes or manually trigger this method in a controller if
+	@Scheduled(fixedRate = 600000)
+	public void reconcileTransactions() {
+		log.info("Starting reconciliation process");
+		List<NormalizedTransactionDTO> transactions = normalizedTransactionService.getAllNormalizedTransactions();
+		log.info("Fetched {} normalized transactions for reconciliation", transactions.size());
 
-        log.info("Transactions fetched for reconciliation: {}", transactions.size());
-        
-     // Add this to inspect transaction keys
-        for (NormalizedTransactionDTO txn : transactions) {
-            String key = generateReconciliationKey(txn);
-            log.debug("Reconciliation key for txnId={} -> {}", txn.getTransactionId(), key);
-        }
+		// Add this to inspect transaction keys
+		for (NormalizedTransactionDTO txn : transactions) {
+			String key = generateReconciliationKey(txn);
+			log.debug("Reconciliation key for txnId={} -> {}", txn.getTransactionId(), key);
+		}
 
-        // Group by a unique reconciliation key
-        Map<String, List<NormalizedTransactionDTO>> grouped = new HashMap<>();
-        for (NormalizedTransactionDTO txn : transactions) {
-            String key = generateReconciliationKey(txn);
-            grouped.computeIfAbsent(key, k -> new ArrayList<>()).add(txn);
-        }
+		// Group by a unique reconciliation key
+		Map<String, List<NormalizedTransactionDTO>> grouped = new HashMap<>();
+		for (NormalizedTransactionDTO txn : transactions) {
+			String key = generateReconciliationKey(txn);
+			grouped.computeIfAbsent(key, k -> new ArrayList<>()).add(txn);
+		}
 
-        // Process reconciliation logic
-        for (Map.Entry<String, List<NormalizedTransactionDTO>> entry : grouped.entrySet()) {
-            String key = entry.getKey();
-            List<NormalizedTransactionDTO> group = entry.getValue();
-            
+		// Process reconciliation logic
+		for (Map.Entry<String, List<NormalizedTransactionDTO>> entry : grouped.entrySet()) {
+			String key = entry.getKey();
+			List<NormalizedTransactionDTO> group = entry.getValue();
+
 //            if (group == null || group.isEmpty()) continue;
-            NormalizedTransactionDTO txn = group.get(0);
+			NormalizedTransactionDTO txn = group.get(0);
 
-            ReconciliationResult result = new ReconciliationResult();
-            result.setAmount(txn.getAmount());
-            result.setSenderUpi(txn.getSenderUpi());
-            result.setReceiverUpi(txn.getReceiverUpi());
-            result.setTransactionTime(txn.getTimestamp());
-            result.setNormalizedKey(key);
-            result.setTransactionCount(group.size());
-            result.setStatus(group.size() > 1 ? "MATCHED" : "MISSING");
+			ReconciliationResult result = new ReconciliationResult();
+			result.setAmount(txn.getAmount());
+			result.setSenderUpi(txn.getSenderUpi());
+			result.setReceiverUpi(txn.getReceiverUpi());
+			result.setTransactionTime(txn.getTimestamp());
+			result.setNormalizedKey(key);
+			result.setTransactionCount(group.size());
+			result.setStatus(group.size() > 1 ? "MATCHED" : "MISSING");
 
-            resultRepository.save(result);
-            publishResult(result);
-            
-        }
-    }
+			resultRepository.save(result);
+			log.info("Saved reconciliation result to DB. normalizedKey={}, status={}", key, result.getStatus());
+			publishResult(result);
+		}
+		log.info("Reconciliation process completed successfully");
+	}
 
-    private String generateReconciliationKey(NormalizedTransactionDTO txn) {
-        return txn.getSenderUpi() + "|" + txn.getReceiverUpi() + "|" +
-               txn.getAmount() + "|" + txn.getTimestamp();
-    }
+	private String generateReconciliationKey(NormalizedTransactionDTO txn) {
+		return txn.getSenderUpi() + "|" + txn.getReceiverUpi() + "|" + txn.getAmount() + "|" + txn.getTimestamp();
+	}
 }

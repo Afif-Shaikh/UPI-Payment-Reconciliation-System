@@ -1,6 +1,6 @@
 package com.Project.UPIRecon.normalizer.config;
 
-import com.Project.UPIRecon.normalizer.dto.TransactionKafkaEvent;
+import com.Project.UPIRecon.dto.RawTransactionEvent;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.*;
@@ -16,8 +16,8 @@ import java.util.*;
 public class KafkaConsumerConfig {
 
     @Bean
-    public ConsumerFactory<String, TransactionKafkaEvent> consumerFactory() {
-        JsonDeserializer<TransactionKafkaEvent> deserializer = new JsonDeserializer<>(TransactionKafkaEvent.class);
+    public ConsumerFactory<String, RawTransactionEvent> consumerFactory() {
+        JsonDeserializer<RawTransactionEvent> deserializer = new JsonDeserializer<>(RawTransactionEvent.class);
         deserializer.setRemoveTypeHeaders(false);
         deserializer.addTrustedPackages("*");
         deserializer.setUseTypeMapperForKey(true);
@@ -32,8 +32,8 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, TransactionKafkaEvent> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, TransactionKafkaEvent> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public ConcurrentKafkaListenerContainerFactory<String, RawTransactionEvent> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, RawTransactionEvent> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }

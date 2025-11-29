@@ -15,25 +15,32 @@ import java.util.List;
 public class ReconciliationController {
 
 	private static final Logger log = LoggingConfig.getLogger(ReconciliationController.class);
-	
-    @Autowired
-    private ReconciliationService reconciliationService;
 
-    @Autowired
-    private ReconciliationResultRepository resultRepository;
+	@Autowired
+	private ReconciliationService reconciliationService;
 
-    // Endpoint to manually trigger reconciliation
-    @PostMapping("/run")
-    public String triggerReconciliation() {
-    	 log.info("Manual reconciliation trigger requested");
-         reconciliationService.reconcileTransactions();
-         log.info("Reconciliation process triggered successfully");
-        return "Reconciliation triggered successfully.";
-    }
+	@Autowired
+	private ReconciliationResultRepository resultRepository;
 
-    // Endpoint to get all reconciliation results
-    @GetMapping("/results")
-    public List<ReconciliationResult> getAllResults() {
-        return resultRepository.findAll();
-    }
+	// Endpoint to manually trigger reconciliation
+	@PostMapping("/run")
+	public String triggerReconciliation() {
+		log.info("Starting manual reconciliation process");
+		try {
+			reconciliationService.reconcileTransactions();
+			log.info("Manual reconciliation process completed successfully");
+			return "Manual reconciliation completed successfully.";
+		} catch (Exception e) {
+			log.error("Manual reconciliation process failed. Error: {}", e.getMessage(), e);
+			return "Manual reconciliation failed:" + e.getMessage();
+		}
+	}
+
+	// Endpoint to get all reconciliation results
+	@GetMapping("/results")
+	public List<ReconciliationResult> getAllResults() {
+		List<ReconciliationResult> results = resultRepository.findAll();
+		log.info("Fetched {} reconciliation results", results.size());
+		return results;
+	}
 }

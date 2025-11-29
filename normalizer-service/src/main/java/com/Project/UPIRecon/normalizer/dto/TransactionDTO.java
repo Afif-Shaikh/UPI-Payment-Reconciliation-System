@@ -2,10 +2,11 @@ package com.Project.UPIRecon.normalizer.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-
+import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Data
 public class TransactionDTO {
 
     @NotBlank(message = "Transaction ID is required")
@@ -22,46 +23,4 @@ public class TransactionDTO {
 
     @NotBlank(message = "Receiver is required")
     private String receiver;
-
-    // Getters and Setters
-
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getSender() {
-        return sender;
-    }
-
-    public void setSender(String sender) {
-        this.sender = sender;
-    }
-
-    public String getReceiver() {
-        return receiver;
-    }
-
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
-    }
 }

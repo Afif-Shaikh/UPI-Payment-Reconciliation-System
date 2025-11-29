@@ -1,4 +1,4 @@
-package com.Project.UPIRecon.transact.kafka;
+package com.Project.UPIRecon.transact.config;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

@@ -70,6 +70,14 @@ services:
       - kafka
       - postgres
 
+  report-service:
+    build: ./report-service
+    container_name: report-service
+    ports:
+      - "8085:8085"
+    depends_on:
+      - kafka
+      - postgres
 
 volumes:
   pgdata:
