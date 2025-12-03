@@ -35,46 +35,84 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
   ingest-service:
-    build: ./ingest-service
+    build: 
+      context: ./ingest-service
+#      dockerfile: ingest-service/Dockerfile
     container_name: ingest-service
     ports:
       - "8081:8081"
+    volumes:
+#      - ./ingest-service/src:/app/ingest-service/src
+#      - ./:/app
+      - ./ingest-service:/app           # mount source code
+#      - ~/.m2:/root/.m2 
+      - C:/Users/thega/.m2:/root/.m2
     depends_on:
       - kafka
       - postgres
 
   transaction-service:
-    build: ./transaction-service
+    build: 
+      context: ./transaction-service
+#      dockerfile: transaction-service/Dockerfile
     container_name: transaction-service
     ports:
       - "8082:8082"
+    volumes:
+#      - ./transaction-service/src:/app/transaction-service/src
+      - ./transaction-service:/app           # mount source code
+      - C:/Users/thega/.m2:/root/.m2
+#      - ./:/app
+#      - ~/.m2:/root/.m2 
     depends_on:
       - kafka
       - postgres
 
   normalizer-service:
-    build: ./normalizer-service
+    build: 
+      context: ./normalizer-service
+#      dockerfile: normalizer-service/Dockerfile
     container_name: normalizer-service
     ports:
       - "8083:8083"
+    volumes:
+      - ./normalizer-service:/app           # mount source code
+      - C:/Users/thega/.m2:/root/.m2
+#      - ./:/app
+#      - ~/.m2:/root/.m2 
     depends_on:
       - kafka
       - postgres
 
   recon-service:
-    build: ./recon-service
+    build: 
+      context: ./recon-service
+#      dockerfile: recon-service/Dockerfile
     container_name: recon-service
     ports:
       - "8084:8084"
+    volumes:
+      - ./recon-service:/app           # mount source code
+#      - ./:/app
+      - C:/Users/thega/.m2:/root/.m2
+#      - ~/.m2:/root/.m2 
     depends_on:
       - kafka
       - postgres
 
   report-service:
-    build: ./report-service
+    build: 
+      context: ./report-service
+#      dockerfile: report-service/Dockerfile
     container_name: report-service
     ports:
       - "8085:8085"
+    volumes:
+      - ./report-service:/app           # mount source code
+#      - ./report-service/src:/app/src
+#      - ~/.m2:/root/.m2 
+#      - ./:/app
+      - C:/Users/thega/.m2:/root/.m2
     depends_on:
       - kafka
       - postgres

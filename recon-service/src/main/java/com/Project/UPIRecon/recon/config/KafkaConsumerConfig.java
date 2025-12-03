@@ -1,5 +1,6 @@
 package com.Project.UPIRecon.recon.config;
 
+import com.Project.UPIRecon.dto.NormalizedTransactionEvent;
 import com.Project.UPIRecon.recon.dto.NormalizedTransactionDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -18,16 +19,21 @@ import java.util.Map;
 public class KafkaConsumerConfig {
 
     @Bean
-    public ConsumerFactory<String, NormalizedTransactionDTO> consumerFactory() {
-        JsonDeserializer<NormalizedTransactionDTO> deserializer = new JsonDeserializer<>(NormalizedTransactionDTO.class);
+    public ConsumerFactory<String, NormalizedTransactionEvent > consumerFactory() {
+        JsonDeserializer<NormalizedTransactionEvent > deserializer = new JsonDeserializer<>(NormalizedTransactionEvent .class);
         deserializer.addTrustedPackages("*");
+        deserializer.setUseTypeMapperForKey(false);
+
 
         return new DefaultKafkaConsumerFactory<>(
                 Map.of(
                         ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka:9092",
                         ConsumerConfig.GROUP_ID_CONFIG, "recon-group",
                         ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class,
-                        ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, deserializer.getClass()
+                        ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class,
+//                        ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, deserializer.getClass()
+                        JsonDeserializer.TRUSTED_PACKAGES, "*",// new
+                        JsonDeserializer.USE_TYPE_INFO_HEADERS, false//new
                 ),
                 new StringDeserializer(),
                 deserializer
@@ -35,8 +41,8 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, NormalizedTransactionDTO> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, NormalizedTransactionDTO> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public ConcurrentKafkaListenerContainerFactory<String, NormalizedTransactionEvent > kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, NormalizedTransactionEvent > factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }
