@@ -1,8 +1,10 @@
 package com.Project.UPIRecon.recon.kafka;
 
-import com.Project.UPIRecon.recon.dto.NormalizedTransactionDTO;
+//import com.Project.UPIRecon.recon.dto.NormalizedTransactionDTO;
 import com.Project.UPIRecon.recon.service.NormalizedTransactionService;
 import com.Project.UPIRecon.config.LoggingConfig;
+import com.Project.UPIRecon.dto.NormalizedTransactionEvent;
+
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -17,7 +19,7 @@ public class NormalizedTransactionConsumer {
 	private NormalizedTransactionService normalizedTransactionService;
 
 	@KafkaListener(topics = "normalized-transactions", groupId = "recon-group", containerFactory = "kafkaListenerContainerFactory")
-	public void consume(NormalizedTransactionDTO dto) {
+	public void consume(NormalizedTransactionEvent  dto) {
 		log.info("Consumed normalized transaction from Kafka. TransactionId: {}", dto.getTransactionId());
 
 		try {

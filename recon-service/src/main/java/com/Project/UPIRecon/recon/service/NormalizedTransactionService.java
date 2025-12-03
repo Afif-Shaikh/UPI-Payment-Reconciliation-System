@@ -4,6 +4,8 @@ import com.Project.UPIRecon.recon.dto.NormalizedTransactionDTO;
 import com.Project.UPIRecon.recon.entity.NormalizedTransaction;
 import com.Project.UPIRecon.recon.repository.NormalizedTransactionRepository;
 import com.Project.UPIRecon.config.LoggingConfig;
+import com.Project.UPIRecon.dto.NormalizedTransactionEvent;
+
 import org.slf4j.Logger;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +21,7 @@ public class NormalizedTransactionService {
 	@Autowired
 	private NormalizedTransactionRepository repository;
 
-	public void saveNormalizedTransaction(NormalizedTransactionDTO dto) {
+	public void saveNormalizedTransaction(NormalizedTransactionEvent dto) {
 		try {
 			NormalizedTransaction entity = new NormalizedTransaction();
 			entity.setTransactionId(dto.getTransactionId());
@@ -27,8 +29,11 @@ public class NormalizedTransactionService {
 			entity.setReceiver(dto.getReceiverUpi());
 			entity.setAmount(dto.getAmount());
 			entity.setTimestamp(dto.getTimestamp());
+			entity.setNormalizedKey(dto.getNormalizedKey());
 			repository.save(entity);
 			log.info("Saved normalized transaction. TransactionId: {}", dto.getTransactionId());
+			log.info("testing live reload");
+			log.info("testing live reload");
 		} catch (Exception e) {
 			log.error("Failed to save normalized transaction. TransactionId: {} | Error: {}", dto.getTransactionId(),
 					e.getMessage(), e);
@@ -40,7 +45,7 @@ public class NormalizedTransactionService {
 		log.info("Fetched {} normalized transactions from DB", transactions.size());
 
 		return transactions.stream().map(txn -> {
-			NormalizedTransactionDTO dto = new NormalizedTransactionDTO();
+			NormalizedTransactionDTO  dto = new NormalizedTransactionDTO();
 			dto.setSenderUpi(txn.getSender());
 			dto.setReceiverUpi(txn.getReceiver());
 			dto.setAmount(txn.getAmount());

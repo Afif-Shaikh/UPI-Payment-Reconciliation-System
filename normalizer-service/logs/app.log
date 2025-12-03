@@ -1,0 +1,1201 @@
+2025-11-30 14:04:29 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-11-30 14:04:31 INFO  c.P.U.n.NormalizerServiceApplication - Starting NormalizerServiceApplication using Java 17.0.17 with PID 61 (/app/target/classes started by root in /app)
+2025-11-30 14:04:31 INFO  c.P.U.n.NormalizerServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-30 14:04:32 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-30 14:04:32 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-30 16:09:15 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-30 16:09:44 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22710 ms. Found 1 JPA repository interface.
+2025-11-30 16:10:09 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8083 (http)
+2025-11-30 16:10:09 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8083"]
+2025-11-30 16:10:09 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-30 16:10:09 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-11-30 16:10:11 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-30 16:10:11 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7538854 ms
+2025-11-30 16:10:16 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-30 16:10:19 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-11-30 16:10:23 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-30 16:10:42 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-30 16:10:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-30 16:10:49 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4e3e917e
+2025-11-30 16:10:49 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-30 16:10:50 WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-30 16:11:11 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-30 16:11:14 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-30 16:11:32 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-30 16:12:00 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-11-30 16:12:01 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8083"]
+2025-11-30 16:12:01 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8083 (http) with context path ''
+2025-11-30 16:12:02 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-normalizer-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = normalizer-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2025-11-30 16:12:04 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.0
+2025-11-30 16:12:04 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 60e845626d8a465a
+2025-11-30 16:12:04 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1764519124136
+2025-11-30 16:12:04 INFO  o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Subscribed to topic(s): transactions
+2025-11-30 16:12:04 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-normalizer-group-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = normalizer-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2025-11-30 16:12:04 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.0
+2025-11-30 16:12:04 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 60e845626d8a465a
+2025-11-30 16:12:04 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1764519124318
+2025-11-30 16:12:04 INFO  o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Subscribed to topic(s): raw-transactions
+2025-11-30 16:12:04 INFO  c.P.U.n.NormalizerServiceApplication - Started NormalizerServiceApplication in 7670.319 seconds (process running for 275.499)
+2025-11-30 16:12:13 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 2 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:13 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 2 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:13 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Cluster ID: emHnrY2eSZmM2BwSPXezWw
+2025-11-30 16:12:13 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Cluster ID: emHnrY2eSZmM2BwSPXezWw
+2025-11-30 16:12:14 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 4 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:14 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 4 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:14 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 6 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:14 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 6 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:14 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 8 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:14 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 8 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:15 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 10 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:15 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 10 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:15 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 12 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:15 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 12 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:15 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 14 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:15 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 14 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:15 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 16 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:15 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 16 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:16 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 18 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:16 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 18 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:16 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 20 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:16 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 20 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:16 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 22 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:16 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 22 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:16 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 24 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:16 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 24 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:17 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 26 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:17 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 26 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:17 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 28 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:17 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 28 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:17 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 30 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:17 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 30 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:17 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 32 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 32 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 34 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 34 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 36 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 36 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 38 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 38 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 40 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 40 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 42 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 42 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 44 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 44 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:19 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 46 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:19 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 46 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:19 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 48 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:19 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 48 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:19 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 50 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:19 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 51 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:12:37 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-11-30 16:12:37 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-11-30 16:12:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] (Re-)joining group
+2025-11-30 16:12:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] (Re-)joining group
+2025-11-30 16:12:39 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Request joining group due to: need to re-join with the given member-id: consumer-normalizer-group-1-17103e35-2b3f-470b-9039-295a50197d77
+2025-11-30 16:12:39 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Request joining group due to: need to re-join with the given member-id: consumer-normalizer-group-2-dc572317-cbff-40c2-9cb8-c1377e02a957
+2025-11-30 16:12:39 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-11-30 16:12:39 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] (Re-)joining group
+2025-11-30 16:12:39 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-11-30 16:12:39 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] (Re-)joining group
+2025-11-30 16:12:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-normalizer-group-1-17103e35-2b3f-470b-9039-295a50197d77', protocol='range'}
+2025-11-30 16:12:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-normalizer-group-2-dc572317-cbff-40c2-9cb8-c1377e02a957', protocol='range'}
+2025-11-30 16:12:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Finished assignment for group at generation 1: {consumer-normalizer-group-1-17103e35-2b3f-470b-9039-295a50197d77=Assignment(partitions=[transactions-0]), consumer-normalizer-group-2-dc572317-cbff-40c2-9cb8-c1377e02a957=Assignment(partitions=[raw-transactions-0])}
+2025-11-30 16:12:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-normalizer-group-1-17103e35-2b3f-470b-9039-295a50197d77', protocol='range'}
+2025-11-30 16:12:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-normalizer-group-2-dc572317-cbff-40c2-9cb8-c1377e02a957', protocol='range'}
+2025-11-30 16:12:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Notifying assignor about the new Assignment(partitions=[raw-transactions-0])
+2025-11-30 16:12:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Notifying assignor about the new Assignment(partitions=[transactions-0])
+2025-11-30 16:12:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Adding newly assigned partitions: transactions-0
+2025-11-30 16:12:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Adding newly assigned partitions: raw-transactions-0
+2025-11-30 16:12:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Found no committed offset for partition transactions-0
+2025-11-30 16:12:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Found no committed offset for partition raw-transactions-0
+2025-11-30 16:12:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Found no committed offset for partition raw-transactions-0
+2025-11-30 16:12:47 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Found no committed offset for partition transactions-0
+2025-11-30 16:12:47 INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Resetting offset for partition transactions-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+2025-11-30 16:12:47 INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Resetting offset for partition raw-transactions-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+2025-11-30 16:12:47 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions assigned: [transactions-0]
+2025-11-30 16:12:47 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions assigned: [raw-transactions-0]
+2025-11-30 16:21:14 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Node -1 disconnected.
+2025-11-30 16:21:14 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Node -1 disconnected.
+2025-11-30 16:21:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Revoke previously assigned partitions raw-transactions-0
+2025-11-30 16:21:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Revoke previously assigned partitions transactions-0
+2025-11-30 16:21:48 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions revoked: [raw-transactions-0]
+2025-11-30 16:21:48 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions revoked: [transactions-0]
+2025-11-30 16:21:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Member consumer-normalizer-group-2-dc572317-cbff-40c2-9cb8-c1377e02a957 sending LeaveGroup request to coordinator kafka:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-11-30 16:21:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Member consumer-normalizer-group-1-17103e35-2b3f-470b-9039-295a50197d77 sending LeaveGroup request to coordinator kafka:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-11-30 16:21:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-11-30 16:21:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-11-30 16:21:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Request joining group due to: consumer pro-actively leaving the group
+2025-11-30 16:21:48 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Request joining group due to: consumer pro-actively leaving the group
+2025-11-30 16:21:48 INFO  o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Unsubscribed all topics or patterns and assigned partitions
+2025-11-30 16:21:48 INFO  o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Unsubscribed all topics or patterns and assigned partitions
+2025-11-30 16:21:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-11-30 16:21:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-11-30 16:21:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Request joining group due to: consumer pro-actively leaving the group
+2025-11-30 16:21:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Request joining group due to: consumer pro-actively leaving the group
+2025-11-30 16:21:49 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-11-30 16:21:49 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-11-30 16:21:49 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-11-30 16:21:49 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-11-30 16:21:49 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-11-30 16:21:49 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-11-30 16:21:49 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-normalizer-group-2 unregistered
+2025-11-30 16:21:49 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-normalizer-group-1 unregistered
+2025-11-30 16:21:49 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: Consumer stopped
+2025-11-30 16:21:49 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: Consumer stopped
+2025-11-30 16:21:53 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-30 16:21:53 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-30 16:21:53 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-30 16:27:28 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-11-30 16:27:30 INFO  c.P.U.n.NormalizerServiceApplication - Starting NormalizerServiceApplication using Java 17.0.17 with PID 64 (/app/target/classes started by root in /app)
+2025-11-30 16:27:30 INFO  c.P.U.n.NormalizerServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-30 16:27:31 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-30 16:27:31 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-30 16:28:02 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-30 16:28:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1411 ms. Found 1 JPA repository interface.
+2025-11-30 16:28:15 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8083 (http)
+2025-11-30 16:28:16 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8083"]
+2025-11-30 16:28:16 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-30 16:28:16 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-11-30 16:28:17 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-30 16:28:17 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 45477 ms
+2025-11-30 16:28:20 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-30 16:28:22 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-11-30 16:28:23 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-30 16:28:31 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-30 16:28:32 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-30 16:28:37 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@379a01fe
+2025-11-30 16:28:37 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-30 16:28:38 WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-30 16:29:17 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-30 16:29:20 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-30 16:29:39 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-30 16:30:18 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-11-30 16:30:19 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8083"]
+2025-11-30 16:30:19 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8083 (http) with context path ''
+2025-11-30 16:30:22 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-normalizer-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = normalizer-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2025-11-30 16:30:32 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.0
+2025-11-30 16:30:32 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 60e845626d8a465a
+2025-11-30 16:30:32 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1764520232369
+2025-11-30 16:30:32 INFO  o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Subscribed to topic(s): transactions
+2025-11-30 16:30:33 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-normalizer-group-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = normalizer-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2025-11-30 16:30:33 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.0
+2025-11-30 16:30:33 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 60e845626d8a465a
+2025-11-30 16:30:33 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1764520233116
+2025-11-30 16:30:33 INFO  o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Subscribed to topic(s): raw-transactions
+2025-11-30 16:30:33 INFO  c.P.U.n.NormalizerServiceApplication - Started NormalizerServiceApplication in 197.905 seconds (process running for 208.678)
+2025-11-30 16:31:48 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Disconnecting from node -1 due to request timeout.
+2025-11-30 16:31:48 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Disconnecting from node -1 due to request timeout.
+2025-11-30 16:32:53 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Cancelled in-flight METADATA request with correlation id 2 due to node -1 being disconnected (elapsed time since creation: 31776ms, elapsed time since send: 31776ms, request timeout: 30000ms)
+2025-11-30 16:32:53 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Cancelled in-flight METADATA request with correlation id 2 due to node -1 being disconnected (elapsed time since creation: 32341ms, elapsed time since send: 32341ms, request timeout: 30000ms)
+2025-11-30 16:34:44 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Cancelled in-flight FIND_COORDINATOR request with correlation id 0 due to node -1 being disconnected (elapsed time since creation: 35680ms, elapsed time since send: 31746ms, request timeout: 30000ms)
+2025-11-30 16:34:45 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Cancelled in-flight FIND_COORDINATOR request with correlation id 0 due to node -1 being disconnected (elapsed time since creation: 36240ms, elapsed time since send: 32305ms, request timeout: 30000ms)
+2025-11-30 16:35:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Bootstrap broker kafka:9092 (id: -1 rack: null) disconnected
+2025-11-30 16:35:18 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Bootstrap broker kafka:9092 (id: -1 rack: null) disconnected
+2025-11-30 16:36:34 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Disconnecting from node -1 due to request timeout.
+2025-11-30 16:36:34 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Cancelled in-flight API_VERSIONS request with correlation id 3 due to node -1 being disconnected (elapsed time since creation: 33044ms, elapsed time since send: 33044ms, request timeout: 30000ms)
+2025-11-30 16:36:35 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Bootstrap broker kafka:9092 (id: -1 rack: null) disconnected
+2025-11-30 16:36:07 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error connecting to node kafka:9092 (id: -1 rack: null)
+java.net.UnknownHostException: kafka: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:934)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1543)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:852)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:122)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:510)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1030)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:73)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1203)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1091)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:569)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:280)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:251)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:242)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.awaitMetadataUpdate(ConsumerNetworkClient.java:164)
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:277)
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:240)
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:504)
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:536)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.updateAssignmentMetadataIfNeeded(KafkaConsumer.java:1220)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1179)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1159)
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1658)
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1633)
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1430)
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1322)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-11-30 16:37:54 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error connecting to node kafka:9092 (id: -1 rack: null)
+java.net.UnknownHostException: kafka: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.InetAddress$PlatformNameService.lookupAllHostAddr(InetAddress.java:934)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1543)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:852)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:122)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:510)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1030)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:73)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1203)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1091)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:569)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:280)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:251)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:242)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.awaitMetadataUpdate(ConsumerNetworkClient.java:164)
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:277)
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:240)
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:504)
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:536)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.updateAssignmentMetadataIfNeeded(KafkaConsumer.java:1220)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1179)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1159)
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1658)
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1633)
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1430)
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1322)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-11-30 16:45:28 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Bootstrap broker kafka:9092 (id: -1 rack: null) disconnected
+2025-11-30 16:45:28 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Bootstrap broker kafka:9092 (id: -1 rack: null) disconnected
+2025-11-30 16:45:29 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error connecting to node kafka:9092 (id: -1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedAddresses.get(InetAddress.java:801)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1385)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1306)
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:122)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:510)
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:467)
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173)
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1030)
+	at org.apache.kafka.clients.NetworkClient.access$600(NetworkClient.java:73)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1203)
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1091)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:569)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:280)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:251)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.pollForFetches(KafkaConsumer.java:1255)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1186)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:1159)
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1658)
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1633)
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1430)
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1322)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-11-30 16:45:29 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Bootstrap broker kafka:9092 (id: -1 rack: null) disconnected
+2025-11-30 16:45:39 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 5 : {raw-transactions=UNKNOWN_TOPIC_OR_PARTITION}
+2025-11-30 16:45:39 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 7 : {transactions=UNKNOWN_TOPIC_OR_PARTITION}
+2025-11-30 16:45:40 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Cluster ID: w3TIzYtNT-qnAsjURzk2gQ
+2025-11-30 16:45:40 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Cluster ID: w3TIzYtNT-qnAsjURzk2gQ
+2025-11-30 16:45:42 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 9 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:42 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 7 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:42 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 11 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:42 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 9 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:42 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 13 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:42 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 11 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:42 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 15 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:42 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 13 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:42 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 17 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:43 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 15 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:43 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 19 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:43 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 17 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:43 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 21 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:43 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 19 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:43 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 23 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:43 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 21 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:43 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 25 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:43 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 23 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:44 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 27 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:44 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 25 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:44 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 29 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:44 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 27 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:44 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 31 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:44 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 29 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:44 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 33 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:44 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 31 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:44 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 35 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:45 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 33 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:45 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 37 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:46 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 39 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:46 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 35 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:46 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 37 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:46 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 41 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:46 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 39 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:48 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 41 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:49 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 43 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:50 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 43 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:50 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 45 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:50 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 45 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:51 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 47 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:51 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 47 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:51 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 49 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:51 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 49 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:51 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 51 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:51 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 51 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:52 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 52 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:52 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 53 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:52 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 54 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:52 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 55 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:52 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 56 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:52 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 57 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:52 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 58 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:52 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 60 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:52 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 59 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:53 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 61 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:53 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 62 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:53 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 63 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:45:53 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 64 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:01 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 65 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:01 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 66 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:01 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 67 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:01 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 68 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:01 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 69 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:01 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 70 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:01 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 71 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:01 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 72 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:01 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 73 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:01 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 74 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:02 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 75 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:02 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 76 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:02 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 77 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:02 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 78 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:02 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Error while fetching metadata with correlation id 79 : {raw-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:02 WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Error while fetching metadata with correlation id 80 : {transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:46:27 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-11-30 16:46:27 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-11-30 16:46:27 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] (Re-)joining group
+2025-11-30 16:46:27 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] (Re-)joining group
+2025-11-30 16:46:31 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Request joining group due to: need to re-join with the given member-id: consumer-normalizer-group-1-bd2d25f1-2a14-43f0-8295-ea8221944773
+2025-11-30 16:46:31 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Request joining group due to: need to re-join with the given member-id: consumer-normalizer-group-2-e50ee030-986f-4aff-9e1e-e259d096064e
+2025-11-30 16:46:31 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-11-30 16:46:31 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-11-30 16:46:31 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] (Re-)joining group
+2025-11-30 16:46:31 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] (Re-)joining group
+2025-11-30 16:46:37 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-normalizer-group-2-e50ee030-986f-4aff-9e1e-e259d096064e', protocol='range'}
+2025-11-30 16:46:37 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-normalizer-group-1-bd2d25f1-2a14-43f0-8295-ea8221944773', protocol='range'}
+2025-11-30 16:46:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Finished assignment for group at generation 1: {consumer-normalizer-group-1-bd2d25f1-2a14-43f0-8295-ea8221944773=Assignment(partitions=[transactions-0]), consumer-normalizer-group-2-e50ee030-986f-4aff-9e1e-e259d096064e=Assignment(partitions=[raw-transactions-0])}
+2025-11-30 16:46:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-normalizer-group-1-bd2d25f1-2a14-43f0-8295-ea8221944773', protocol='range'}
+2025-11-30 16:46:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-normalizer-group-2-e50ee030-986f-4aff-9e1e-e259d096064e', protocol='range'}
+2025-11-30 16:46:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Notifying assignor about the new Assignment(partitions=[transactions-0])
+2025-11-30 16:46:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Notifying assignor about the new Assignment(partitions=[raw-transactions-0])
+2025-11-30 16:46:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Adding newly assigned partitions: raw-transactions-0
+2025-11-30 16:46:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Adding newly assigned partitions: transactions-0
+2025-11-30 16:46:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Found no committed offset for partition transactions-0
+2025-11-30 16:46:38 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Found no committed offset for partition raw-transactions-0
+2025-11-30 16:46:39 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Found no committed offset for partition raw-transactions-0
+2025-11-30 16:46:39 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Found no committed offset for partition transactions-0
+2025-11-30 16:46:39 INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Resetting offset for partition raw-transactions-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+2025-11-30 16:46:39 INFO  o.a.k.c.c.i.SubscriptionState - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Resetting offset for partition transactions-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+2025-11-30 16:46:39 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions assigned: [transactions-0]
+2025-11-30 16:46:39 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions assigned: [raw-transactions-0]
+2025-11-30 16:54:40 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Node -1 disconnected.
+2025-11-30 16:54:40 INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Node -1 disconnected.
+2025-11-30 16:55:53 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 20 class path changes (0 additions, 0 deletions, 20 modifications)
+2025-11-30 16:55:57 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Revoke previously assigned partitions raw-transactions-0
+2025-11-30 16:55:57 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Revoke previously assigned partitions transactions-0
+2025-11-30 16:55:57 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions revoked: [raw-transactions-0]
+2025-11-30 16:55:57 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions revoked: [transactions-0]
+2025-11-30 16:55:57 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Member consumer-normalizer-group-1-bd2d25f1-2a14-43f0-8295-ea8221944773 sending LeaveGroup request to coordinator kafka:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-11-30 16:55:57 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Member consumer-normalizer-group-2-e50ee030-986f-4aff-9e1e-e259d096064e sending LeaveGroup request to coordinator kafka:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-11-30 16:55:57 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-11-30 16:55:57 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-11-30 16:55:57 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Request joining group due to: consumer pro-actively leaving the group
+2025-11-30 16:55:57 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Request joining group due to: consumer pro-actively leaving the group
+2025-11-30 16:55:57 INFO  o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Unsubscribed all topics or patterns and assigned partitions
+2025-11-30 16:55:57 INFO  o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Unsubscribed all topics or patterns and assigned partitions
+2025-11-30 16:55:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-11-30 16:55:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-11-30 16:55:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-2, groupId=normalizer-group] Request joining group due to: consumer pro-actively leaving the group
+2025-11-30 16:55:58 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-1, groupId=normalizer-group] Request joining group due to: consumer pro-actively leaving the group
+2025-11-30 16:56:05 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-11-30 16:56:05 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-11-30 16:56:05 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-11-30 16:56:05 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-11-30 16:56:05 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-11-30 16:56:05 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-11-30 16:56:05 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-normalizer-group-1 unregistered
+2025-11-30 16:56:05 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-normalizer-group-2 unregistered
+2025-11-30 16:56:05 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: Consumer stopped
+2025-11-30 16:56:05 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: Consumer stopped
+2025-11-30 16:56:07 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8083"]
+2025-11-30 16:56:10 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-30 16:56:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-30 16:56:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-30 16:56:25 INFO  c.P.U.n.NormalizerServiceApplication - Starting NormalizerServiceApplication using Java 17.0.17 with PID 64 (/app/target/classes started by root in /app)
+2025-11-30 16:56:25 INFO  c.P.U.n.NormalizerServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-30 16:57:02 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-30 16:57:03 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1207 ms. Found 1 JPA repository interface.
+2025-11-30 16:57:10 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8083 (http)
+2025-11-30 16:57:10 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8083"]
+2025-11-30 16:57:10 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-30 16:57:10 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-11-30 16:57:12 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-30 16:57:12 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 46782 ms
+2025-11-30 16:57:15 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-30 16:57:16 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-30 16:57:19 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-30 16:57:19 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-11-30 16:57:21 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@7122a4be
+2025-11-30 16:57:21 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-11-30 16:57:22 WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-30 16:57:33 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-30 16:57:34 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-30 16:57:41 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-30 16:58:40 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-11-30 16:58:44 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8083"]
+2025-11-30 16:58:44 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8083 (http) with context path ''
+2025-11-30 16:58:45 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-normalizer-group-3
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = normalizer-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2025-11-30 16:58:45 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.0
+2025-11-30 16:58:45 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 60e845626d8a465a
+2025-11-30 16:58:45 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1764521925472
+2025-11-30 16:58:45 INFO  o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Subscribed to topic(s): transactions
+2025-11-30 16:58:45 INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-normalizer-group-4
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = normalizer-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2025-11-30 16:58:45 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.0
+2025-11-30 16:58:45 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 60e845626d8a465a
+2025-11-30 16:58:45 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1764521925599
+2025-11-30 16:58:45 INFO  o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Subscribed to topic(s): raw-transactions
+2025-11-30 16:58:45 INFO  c.P.U.n.NormalizerServiceApplication - Started NormalizerServiceApplication in 142.454 seconds (process running for 1902.229)
+2025-11-30 16:58:45 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-11-30 16:58:46 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Cluster ID: w3TIzYtNT-qnAsjURzk2gQ
+2025-11-30 16:58:46 INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Cluster ID: w3TIzYtNT-qnAsjURzk2gQ
+2025-11-30 16:58:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-11-30 16:58:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-11-30 16:58:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] (Re-)joining group
+2025-11-30 16:58:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] (Re-)joining group
+2025-11-30 16:58:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Request joining group due to: need to re-join with the given member-id: consumer-normalizer-group-3-0140756b-87d7-448e-a547-a22edb91a1a8
+2025-11-30 16:58:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Request joining group due to: need to re-join with the given member-id: consumer-normalizer-group-4-eb731b16-c976-4225-a822-ea2831e0f5bd
+2025-11-30 16:58:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-11-30 16:58:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
+2025-11-30 16:58:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] (Re-)joining group
+2025-11-30 16:58:46 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] (Re-)joining group
+2025-11-30 16:58:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Successfully joined group with generation Generation{generationId=3, memberId='consumer-normalizer-group-3-0140756b-87d7-448e-a547-a22edb91a1a8', protocol='range'}
+2025-11-30 16:58:49 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Successfully joined group with generation Generation{generationId=3, memberId='consumer-normalizer-group-4-eb731b16-c976-4225-a822-ea2831e0f5bd', protocol='range'}
+2025-11-30 16:58:50 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Finished assignment for group at generation 3: {consumer-normalizer-group-3-0140756b-87d7-448e-a547-a22edb91a1a8=Assignment(partitions=[transactions-0]), consumer-normalizer-group-4-eb731b16-c976-4225-a822-ea2831e0f5bd=Assignment(partitions=[raw-transactions-0])}
+2025-11-30 16:58:50 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Successfully synced group in generation Generation{generationId=3, memberId='consumer-normalizer-group-3-0140756b-87d7-448e-a547-a22edb91a1a8', protocol='range'}
+2025-11-30 16:58:50 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Successfully synced group in generation Generation{generationId=3, memberId='consumer-normalizer-group-4-eb731b16-c976-4225-a822-ea2831e0f5bd', protocol='range'}
+2025-11-30 16:58:50 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Notifying assignor about the new Assignment(partitions=[transactions-0])
+2025-11-30 16:58:50 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Adding newly assigned partitions: transactions-0
+2025-11-30 16:58:50 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Notifying assignor about the new Assignment(partitions=[raw-transactions-0])
+2025-11-30 16:58:50 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Adding newly assigned partitions: raw-transactions-0
+2025-11-30 16:58:50 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Setting offset for partition raw-transactions-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
+2025-11-30 16:58:50 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Setting offset for partition transactions-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
+2025-11-30 16:58:50 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions assigned: [raw-transactions-0]
+2025-11-30 16:58:50 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions assigned: [transactions-0]
+2025-11-30 16:58:57 INFO  c.P.U.n.kafka.RawTransactionConsumer - Consumed RAW transaction from Kafka. TransactionId: qwe123
+2025-11-30 16:58:57 INFO  c.P.U.n.service.NormalizerService - Normalizing transaction. TransactionId: qwe123
+2025-11-30 16:59:00 INFO  c.P.U.n.service.NormalizerService - Saved normalized transaction to DB. TransactionId: qwe123
+2025-11-30 16:59:00 INFO  c.P.U.n.kafka.TransactionProducer - Preparing to send normalized transaction to Kafka. TransactionId: qwe123
+2025-11-30 16:59:01 INFO  o.a.k.c.producer.ProducerConfig - ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [kafka:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2025-11-30 16:59:01 INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Instantiated an idempotent producer.
+2025-11-30 16:59:01 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.6.0
+2025-11-30 16:59:01 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 60e845626d8a465a
+2025-11-30 16:59:01 INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1764521941343
+2025-11-30 16:59:01 WARN  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error while fetching metadata with correlation id 1 : {normalized-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:59:01 INFO  org.apache.kafka.clients.Metadata - [Producer clientId=producer-1] Cluster ID: w3TIzYtNT-qnAsjURzk2gQ
+2025-11-30 16:59:01 INFO  o.a.k.c.p.i.TransactionManager - [Producer clientId=producer-1] ProducerId set to 1 with epoch 0
+2025-11-30 16:59:01 WARN  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error while fetching metadata with correlation id 4 : {normalized-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:59:01 WARN  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error while fetching metadata with correlation id 5 : {normalized-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:59:02 WARN  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error while fetching metadata with correlation id 6 : {normalized-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:59:02 WARN  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error while fetching metadata with correlation id 7 : {normalized-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:59:02 WARN  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error while fetching metadata with correlation id 8 : {normalized-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:59:02 WARN  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error while fetching metadata with correlation id 9 : {normalized-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:59:02 WARN  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error while fetching metadata with correlation id 10 : {normalized-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:59:02 WARN  o.apache.kafka.clients.NetworkClient - [Producer clientId=producer-1] Error while fetching metadata with correlation id 11 : {normalized-transactions=LEADER_NOT_AVAILABLE}
+2025-11-30 16:59:03 INFO  c.P.U.n.kafka.TransactionProducer - Successfully sent normalized transaction to Kafka topic 'normalized-transactions'. TransactionId: qwe123
+2025-11-30 16:59:03 INFO  c.P.U.n.service.NormalizerService - Published normalized transaction to Kafka. TransactionId: qwe123
+2025-11-30 16:59:03 INFO  c.P.U.n.kafka.RawTransactionConsumer - Successfully normalized transaction. TransactionId: qwe123
+2025-11-30 17:00:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Revoke previously assigned partitions raw-transactions-0
+2025-11-30 17:00:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Revoke previously assigned partitions transactions-0
+2025-11-30 17:00:51 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions revoked: [raw-transactions-0]
+2025-11-30 17:00:51 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions revoked: [transactions-0]
+2025-11-30 17:00:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Member consumer-normalizer-group-3-0140756b-87d7-448e-a547-a22edb91a1a8 sending LeaveGroup request to coordinator kafka:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-11-30 17:00:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Member consumer-normalizer-group-4-eb731b16-c976-4225-a822-ea2831e0f5bd sending LeaveGroup request to coordinator kafka:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-11-30 17:00:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-11-30 17:00:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Request joining group due to: consumer pro-actively leaving the group
+2025-11-30 17:00:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-11-30 17:00:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Request joining group due to: consumer pro-actively leaving the group
+2025-11-30 17:00:51 INFO  o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Unsubscribed all topics or patterns and assigned partitions
+2025-11-30 17:00:51 INFO  o.s.k.c.DefaultKafkaConsumerFactory$ExtendedKafkaConsumer - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Unsubscribed all topics or patterns and assigned partitions
+2025-11-30 17:00:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-11-30 17:00:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-3, groupId=normalizer-group] Request joining group due to: consumer pro-actively leaving the group
+2025-11-30 17:00:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-11-30 17:00:51 INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-normalizer-group-4, groupId=normalizer-group] Request joining group due to: consumer pro-actively leaving the group
+2025-11-30 17:00:51 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-11-30 17:00:51 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-11-30 17:00:51 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-11-30 17:00:51 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-11-30 17:00:51 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-11-30 17:00:51 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-11-30 17:00:52 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-normalizer-group-4 unregistered
+2025-11-30 17:00:52 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: Consumer stopped
+2025-11-30 17:00:52 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-normalizer-group-3 unregistered
+2025-11-30 17:00:52 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: Consumer stopped
+2025-11-30 17:00:52 INFO  o.a.k.clients.producer.KafkaProducer - [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2025-11-30 17:00:52 INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2025-11-30 17:00:52 INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-11-30 17:00:52 INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2025-11-30 17:00:52 INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.producer for producer-1 unregistered
+2025-11-30 17:00:55 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-30 17:00:55 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-11-30 17:00:55 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
