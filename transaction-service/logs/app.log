@@ -34,3 +34,4 @@
 2025-12-04 16:01:14 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
 2025-12-04 16:01:14 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
 2025-12-04 16:01:14 INFO  c.P.U.t.TransactionServiceApplication - Started TransactionServiceApplication in 105.616 seconds (process running for 114.162)
+2025-12-04 16:09:03 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@28957135 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.

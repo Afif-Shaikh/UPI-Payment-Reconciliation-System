@@ -326,3 +326,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: column "source" of relation
 2025-12-04 16:01:30 INFO  o.a.k.c.c.internals.ConsumerUtils - Setting offset for partition raw-transactions-0 to the committed offset FetchPosition{offset=1, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
 2025-12-04 16:01:30 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions assigned: [raw-transactions-0]
 2025-12-04 16:01:30 INFO  o.s.k.l.KafkaMessageListenerContainer - normalizer-group: partitions assigned: [transactions-0]
+2025-12-04 16:06:29 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-04 16:06:29 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-12-04 16:06:29 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 286 ms
+2025-12-04 16:06:34 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 1969 ms
