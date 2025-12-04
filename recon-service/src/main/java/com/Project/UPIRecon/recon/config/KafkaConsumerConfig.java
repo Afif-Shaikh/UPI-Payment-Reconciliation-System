@@ -1,7 +1,7 @@
 package com.Project.UPIRecon.recon.config;
 
 import com.Project.UPIRecon.dto.NormalizedTransactionEvent;
-import com.Project.UPIRecon.recon.dto.NormalizedTransactionDTO;
+//import com.Project.UPIRecon.recon.dto.NormalizedTransactionDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;

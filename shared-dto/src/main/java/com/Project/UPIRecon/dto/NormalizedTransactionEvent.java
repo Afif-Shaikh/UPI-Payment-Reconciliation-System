@@ -12,4 +12,5 @@ public class NormalizedTransactionEvent {
     private String receiverUpi;
     private BigDecimal amount;
     private LocalDateTime timestamp;
+    private String source;   
 }
