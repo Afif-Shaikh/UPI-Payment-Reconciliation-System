@@ -25,6 +25,8 @@ public class NormalizedTransaction {
     private String receiverUpi;
     @NotNull(message = "TimeStamp is required")
     private LocalDateTime timestamp;
+    @NotNull
+    private String source; 
     
     private String normalizedKey;
     
@@ -35,5 +37,7 @@ public class NormalizedTransaction {
         this.receiverUpi = event.getReceiverUpi();
         this.timestamp = event.getTimestamp();
         this.normalizedKey=event.getNormalizedKey();
+        this.source = event.getSource();
+
 	}
 }

@@ -7,19 +7,22 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@ToString
 @Table(name = "normalized_upi_transactions")
 public class NormalizedTransaction {
 
 	@Id
 	private String transactionId;
 	@Column(name = "sender_upi", nullable = false)
-	private String sender;
+	private String senderUpi;
 	@Column(name = "receiver_upi", nullable = false)
-	private String receiver;
+	private String receiverUpi;
 	@Column(nullable = false)
 	private BigDecimal amount;
 	private LocalDateTime timestamp;
 	private String normalizedKey;
+	@Column(nullable = false)
+	private String source;
 	
 //    @Override
 //    public String toString() {

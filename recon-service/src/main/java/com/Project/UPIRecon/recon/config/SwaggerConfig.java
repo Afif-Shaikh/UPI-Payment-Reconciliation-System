@@ -7,13 +7,12 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
-
-    @Bean
-    public OpenAPI upiReconAPI() {
+	@Bean
+    public OpenAPI reconApi() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("UPI Recon API")
-                        .description("API for ingesting and querying UPI transaction data")
+                        .title("Recon Service API")
+                        .description("APIs for querying reconciliation logic via JSON and Excel")
                         .version("1.0"));
     }
 }

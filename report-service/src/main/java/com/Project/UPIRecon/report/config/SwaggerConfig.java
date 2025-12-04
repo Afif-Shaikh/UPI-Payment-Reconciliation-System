@@ -1,4 +1,4 @@
-package com.Project.UPIRecon.normalizer.config;
+package com.Project.UPIRecon.report.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -7,12 +7,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
+
     @Bean
-    public OpenAPI normalizerApi() {
+    public OpenAPI reportApi() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Normalizer Service API")
-                        .description("APIs for normalizing raw UPI transactions via JSON and Excel")
+                        .title("Report Service API")
+                        .description("APIs for querying reconciliation results and summaries")
                         .version("1.0"));
     }
 }

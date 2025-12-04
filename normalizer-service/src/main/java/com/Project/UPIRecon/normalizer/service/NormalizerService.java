@@ -37,6 +37,7 @@ public class NormalizerService {
 		event.setReceiverUpi(raw.getReceiverUpi());
 		event.setTimestamp(raw.getTimestamp());
 		event.setNormalizedKey(normalizedKey);
+		event.setSource(raw.getSource());
 
 		try {
 			NormalizedTransaction entity = new NormalizedTransaction(event);
