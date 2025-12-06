@@ -25,6 +25,9 @@ public class RawTransactionProducer {
         event.setSenderUpi(transaction.getSenderUpi());
         event.setReceiverUpi(transaction.getReceiverUpi());
         event.setTimestamp(transaction.getTimeStamp());
+        event.setStatus(transaction.getStatus());
+        event.setSource(transaction.getSource());
+        event.setRemarks(transaction.getRemarks());
         log.debug("RawTransactionEvent details: {}", event);
 
         try {

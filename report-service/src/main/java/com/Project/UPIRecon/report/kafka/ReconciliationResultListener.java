@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import com.Project.UPIRecon.config.LoggingConfig;
+import com.Project.UPIRecon.dto.ReconciliationResultEvent;
+
 import org.slf4j.Logger;
 
 @Service
@@ -16,13 +18,23 @@ public class ReconciliationResultListener {
 	private static final Logger log = LoggingConfig.getLogger(ReconciliationResultListener.class);
 
 	@KafkaListener(topics = "reconciliation_result", groupId = "report-service")
-	public void consume(ReconciliationResult result) {
+	public void consume(ReconciliationResultEvent result) {
 		log.info("Received reconciliation result from Kafka: key={}, status={}, amount={}", result.getNormalizedKey(),
 				result.getStatus(), result.getAmount());
 		log.debug("Full ReconciliationResult DTO: {}", result);
 
 		try {
-			repository.save(result);
+			ReconciliationResult entity = new ReconciliationResult();
+		    entity.setId(result.getId());
+		    entity.setNormalizedKey(result.getNormalizedKey());
+		    entity.setAmount(result.getAmount());
+		    entity.setSenderUpi(result.getSenderUpi());
+		    entity.setReceiverUpi(result.getReceiverUpi());
+		    entity.setTransactionTime(result.getTransactionTime());
+		    entity.setStatus(result.getStatus());
+		    entity.setRemarks(result.getRemarks());
+		    entity.setTransactionCount(result.getTransactionCount());
+			repository.save(entity);
 			log.info("Consumed reconciliation result from Kafka: key={}, status={}, amount={}",
 					result.getNormalizedKey(), result.getStatus(), result.getAmount());
 		} catch (Exception e) {

@@ -1,5 +1,6 @@
 package com.Project.UPIRecon.recon.config;
 
+import com.Project.UPIRecon.dto.ReconciliationResultEvent;
 import com.Project.UPIRecon.recon.entity.ReconciliationResult;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -13,7 +14,7 @@ import java.util.*;
 public class KafkaProducerConfig {
 
     @Bean
-    public ProducerFactory<String, ReconciliationResult> producerFactory() {
+    public ProducerFactory<String, ReconciliationResultEvent> producerFactory() {
         Map<String, Object> config = new HashMap<>();
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka:9092");
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -22,7 +23,7 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, ReconciliationResult> kafkaTemplate() {
+    public KafkaTemplate<String, ReconciliationResultEvent> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }
