@@ -21,9 +21,6 @@ public class KafkaConsumerConfig {
     @Bean
     public ConsumerFactory<String, NormalizedTransactionEvent > consumerFactory() {
         JsonDeserializer<NormalizedTransactionEvent > deserializer = new JsonDeserializer<>(NormalizedTransactionEvent .class);
-//        deserializer.addTrustedPackages("*");
-//        deserializer.setUseTypeMapperForKey(false);
-
 
         return new DefaultKafkaConsumerFactory<>(
                 Map.of(

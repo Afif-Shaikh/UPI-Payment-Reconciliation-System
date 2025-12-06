@@ -12,4 +12,8 @@ import java.util.UUID;
 public interface ReconciliationResultRepository extends JpaRepository<ReconciliationResult, UUID> {
 
     List<ReconciliationResult> findByTransactionTimeBetween(LocalDateTime start, LocalDateTime end);
+
+	List<ReconciliationResult> findByStatus(String status);
+
+	ReconciliationResult findByNormalizedKeyAndStatus(String normalizedKey, String status);
 }

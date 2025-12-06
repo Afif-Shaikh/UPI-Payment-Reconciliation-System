@@ -1,6 +1,7 @@
 package com.Project.UPIRecon.report.controller;
 
 import com.Project.UPIRecon.report.entity.ReconciliationResult;
+import com.Project.UPIRecon.report.repository.ReconciliationResultRepository;
 import com.Project.UPIRecon.report.service.ReportService;
 import com.Project.UPIRecon.config.LoggingConfig;
 import org.slf4j.Logger;
@@ -24,10 +25,12 @@ public class ReportController {
 
 	@Autowired
 	private ReportService reportService;
+	
+    @Autowired
+    private ReconciliationResultRepository repository;
 
 	private static final Logger log = LoggingConfig.getLogger(ReportController.class);
 
-//	public List<ReconciliationResult> getReportByDate(
 	@GetMapping
 	@Operation(
             summary = "Get reconciliation report by date",
@@ -54,7 +57,15 @@ public class ReportController {
 			return ResponseEntity.status(500)
 					.body("Failed to fetch reconciliation report for date " + date + ". Error: " + e.getMessage());
 		}
-//		return results;
-//		return reportService.getReconciliationResultsByDate(date);
 	}
+	
+	@GetMapping
+    public List<ReconciliationResult> getAllReports() {
+        return repository.findAll();
+    }
+	
+	@GetMapping("/status/{status}")
+    public List<ReconciliationResult> getByStatus(@PathVariable String status) {
+        return repository.findByStatus(status);
+    }
 }

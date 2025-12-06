@@ -22,6 +22,23 @@ public class ReconciliationResultListener {
 		log.info("Received reconciliation result from Kafka: key={}, status={}, amount={}", result.getNormalizedKey(),
 				result.getStatus(), result.getAmount());
 		log.debug("Full ReconciliationResult DTO: {}", result);
+		ReconciliationResult existing =
+	            repository.findByNormalizedKeyAndStatus(result.getNormalizedKey(), result.getStatus());
+		
+		if (existing != null) {
+	        log.info("Duplicate detected → Updating existing record: key={}, status={}",
+	        		result.getNormalizedKey(), result.getStatus());
+
+	        existing.setAmount(result.getAmount());
+	        existing.setSenderUpi(result.getSenderUpi());
+	        existing.setReceiverUpi(result.getReceiverUpi());
+	        existing.setTransactionTime(result.getTransactionTime());
+	        existing.setRemarks(result.getRemarks());
+	        existing.setTransactionCount(result.getTransactionCount());
+
+	        repository.save(existing);
+	        return;
+	    }
 
 		try {
 			ReconciliationResult entity = new ReconciliationResult();
