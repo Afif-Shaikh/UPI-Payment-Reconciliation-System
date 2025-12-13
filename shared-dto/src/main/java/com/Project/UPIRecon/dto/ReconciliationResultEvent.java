@@ -5,12 +5,16 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ReconciliationResultEvent {
+    private String id;
     private String normalizedKey;
+    private BigDecimal amount;
     private String senderUpi;
     private String receiverUpi;
-    private BigDecimal amount;
     private LocalDateTime transactionTime;
-    private Integer transactionCount;
-    private String status;   // MATCHED / MISSING
+    private String status;
+    private String remarks;
+    private int transactionCount;
 }

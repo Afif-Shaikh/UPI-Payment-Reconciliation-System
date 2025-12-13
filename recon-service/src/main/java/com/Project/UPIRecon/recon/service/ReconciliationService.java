@@ -6,6 +6,8 @@ import com.Project.UPIRecon.recon.entity.ReconciliationResult;
 import com.Project.UPIRecon.recon.repository.ReconciliationResultRepository;
 
 import com.Project.UPIRecon.config.LoggingConfig;
+import com.Project.UPIRecon.dto.ReconciliationResultEvent;
+
 import org.slf4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ public class ReconciliationService {
 	private static final Logger log = LoggingConfig.getLogger(ReconciliationService.class);
 
 	@Autowired
-	private KafkaTemplate<String, ReconciliationResult> kafkaTemplate;
+	private KafkaTemplate<String, ReconciliationResultEvent> kafkaTemplate;
 	
 	public ReconciliationService(NormalizedTransactionService normalizedTransactionService,
 			ReconciliationResultRepository resultRepository) {
@@ -38,7 +40,21 @@ public class ReconciliationService {
 		log.debug("ReconciliationResult DTO: {}", result);
 
 		try {
-			kafkaTemplate.send("reconciliation_result", result);
+			ReconciliationResultEvent event = new ReconciliationResultEvent(
+				    result.getId(),
+				    result.getNormalizedKey(),
+				    result.getAmount(),
+				    result.getSenderUpi(),
+				    result.getReceiverUpi(),
+				    result.getTransactionTime(),
+				    result.getStatus(),
+				    result.getRemarks(),
+				    result.getTransactionCount()
+				);
+
+				kafkaTemplate.send("reconciliation_result", event);
+
+//			kafkaTemplate.send("reconciliation_result", result);
 			log.info("Published reconciliation result to Kafka. normalizedKey={}", result.getNormalizedKey());
 		} catch (Exception e) {
 			log.error("Failed to publish reconciliation result. normalizedKey={} | Error: {}",

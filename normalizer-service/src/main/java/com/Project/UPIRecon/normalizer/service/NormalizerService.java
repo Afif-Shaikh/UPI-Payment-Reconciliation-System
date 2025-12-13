@@ -4,6 +4,7 @@ import com.Project.UPIRecon.dto.RawTransactionEvent;
 import com.Project.UPIRecon.dto.NormalizedTransactionEvent;
 import com.Project.UPIRecon.normalizer.kafka.TransactionProducer;
 import com.Project.UPIRecon.normalizer.entity.NormalizedTransaction;
+import com.Project.UPIRecon.normalizer.exception.*;
 import com.Project.UPIRecon.normalizer.repository.NormalizedTransactionRepository;
 import com.Project.UPIRecon.config.LoggingConfig;
 import org.slf4j.Logger;
@@ -24,6 +25,7 @@ public class NormalizerService {
 	public void normalize(RawTransactionEvent raw) {
 
 		log.info("Normalizing transaction. TransactionId: {}", raw.getTransactionId());
+		String txnId = raw.getTransactionId();
 
 		String normalizedKey = raw.getSenderUpi() + "|" + raw.getReceiverUpi() + "|" + raw.getAmount() + "|"
 				+ raw.getTimestamp();
@@ -40,6 +42,11 @@ public class NormalizerService {
 		event.setSource(raw.getSource());
 
 		try {
+			if (repo.existsById(txnId)) {
+				log.warn("Duplicate transaction detected. ID={}", txnId);
+				return;
+			}
+
 			NormalizedTransaction entity = new NormalizedTransaction(event);
 			repo.save(entity);
 			log.info("Saved normalized transaction to DB. TransactionId: {}", raw.getTransactionId());
@@ -48,9 +55,8 @@ public class NormalizerService {
 			log.info("Published normalized transaction to Kafka. TransactionId: {}", raw.getTransactionId());
 
 		} catch (Exception e) {
-			log.error("Error processing normalized transaction. TransactionId: {} | Error: {}",
-                    raw.getTransactionId(), e.getMessage(), e);
-            throw e; 
+			log.error("Error processing normalized transaction. TransactionId: {} | Error: {}", raw.getTransactionId(),
+					e.getMessage(), e);
 		}
 	}
 }
