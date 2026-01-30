@@ -4,8 +4,8 @@ services:
   postgres:
     image: postgres:15
     container_name: postgres
-    ports:
-      - "5432:5432"
+#    ports:
+#      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -42,34 +42,28 @@ services:
     ports:
       - "8081:8081"
     volumes:
-#      - ./ingest-service/src:/app/ingest-service/src
-#      - ./:/app
       - ./ingest-service:/app           # mount source code
-#      - ~/.m2:/root/.m2 
-      - C:/Users/thega/.m2:/root/.m2
+      - ~/.m2:/root/.m2
     depends_on:
       - kafka
       - postgres
 
   transaction-service:
-    build: 
+    build:
       context: ./transaction-service
 #      dockerfile: transaction-service/Dockerfile
     container_name: transaction-service
     ports:
       - "8082:8082"
     volumes:
-#      - ./transaction-service/src:/app/transaction-service/src
       - ./transaction-service:/app           # mount source code
-      - C:/Users/thega/.m2:/root/.m2
-#      - ./:/app
-#      - ~/.m2:/root/.m2 
+      - ~/.m2:/root/.m2
     depends_on:
       - kafka
       - postgres
 
   normalizer-service:
-    build: 
+    build:
       context: ./normalizer-service
 #      dockerfile: normalizer-service/Dockerfile
     container_name: normalizer-service
@@ -77,15 +71,13 @@ services:
       - "8083:8083"
     volumes:
       - ./normalizer-service:/app           # mount source code
-      - C:/Users/thega/.m2:/root/.m2
-#      - ./:/app
-#      - ~/.m2:/root/.m2 
+      - ~/.m2:/root/.m2
     depends_on:
       - kafka
       - postgres
 
   recon-service:
-    build: 
+    build:
       context: ./recon-service
 #      dockerfile: recon-service/Dockerfile
     container_name: recon-service
@@ -93,15 +85,13 @@ services:
       - "8084:8084"
     volumes:
       - ./recon-service:/app           # mount source code
-#      - ./:/app
-      - C:/Users/thega/.m2:/root/.m2
-#      - ~/.m2:/root/.m2 
+      - ~/.m2:/root/.m2
     depends_on:
       - kafka
       - postgres
 
   report-service:
-    build: 
+    build:
       context: ./report-service
 #      dockerfile: report-service/Dockerfile
     container_name: report-service
@@ -109,10 +99,7 @@ services:
       - "8085:8085"
     volumes:
       - ./report-service:/app           # mount source code
-#      - ./report-service/src:/app/src
-#      - ~/.m2:/root/.m2 
-#      - ./:/app
-      - C:/Users/thega/.m2:/root/.m2
+      - ~/.m2:/root/.m2
     depends_on:
       - kafka
       - postgres
